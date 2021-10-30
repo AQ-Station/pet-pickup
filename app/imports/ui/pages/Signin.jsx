@@ -13,7 +13,7 @@ export default class Signin extends React.Component {
   // Initialize component state with properties for login and redirection.
   constructor(props) {
     super(props);
-    this.state = { email: '', password: '', error: '', redirectToReferer: false };
+    this.state = { name: '', phone: '', petcode: '', error: '', redirectToReferer: false };
   }
 
   // Update the form controls each time the user interacts with them.
@@ -23,8 +23,8 @@ export default class Signin extends React.Component {
 
   // Handle Signin submission using Meteor's account mechanism.
   submit = () => {
-    const { email, password } = this.state;
-    Meteor.loginWithPassword(email, password, (err) => {
+    const { name, phone, petcode } = this.state;
+    Meteor.loginWithPassword(name, phone, petcode, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {
@@ -51,31 +51,38 @@ export default class Signin extends React.Component {
             <Form onSubmit={this.submit}>
               <Segment stacked>
                 <Form.Input
-                  label="Email"
-                  id="signin-form-email"
+                  label="Name"
+                  id="signin-form-name"
                   icon="user"
                   iconPosition="left"
-                  name="email"
-                  type="email"
-                  placeholder="E-mail address"
+                  name="name"
+                  type="name"
+                  placeholder="Your Name"
                   onChange={this.handleChange}
                 />
                 <Form.Input
-                  label="Password"
-                  id="signin-form-password"
+                    label="Phone"
+                    id="signin-form-phone"
+                    icon="user"
+                    iconPosition="left"
+                    name="phone"
+                    type="phone"
+                    placeholder="Phone Number (Ex: 808-123-4567)"
+                    onChange={this.handleChange}
+                />
+                <Form.Input
+                  label="Pet Code"
+                  id="signin-form-petcode"
                   icon="lock"
                   iconPosition="left"
-                  name="password"
-                  placeholder="Password"
+                  name="petcode"
+                  placeholder="Pet Code (Ex: 123)"
                   type="password"
                   onChange={this.handleChange}
                 />
-                <Form.Button id="signin-form-submit" content="Submit"/>
+                <Form.Button id="signin-form-status" content="Check Your Pet Status"/>
               </Segment>
             </Form>
-            <Message>
-              <Link to="/signup">Click here to Register</Link>
-            </Message>
             {this.state.error === '' ? (
               ''
             ) : (
