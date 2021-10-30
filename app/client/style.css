@@ -1,8 +1,14 @@
 .blue-background-body {
-  margin-top: 5rem;
-  height: 50rem;
-  position: relative;
-  padding: 0.4rem;
+  margin-top: 2rem !important; /* adjust when navbar is edited */
+  height: 25rem;
+  padding: 0.2rem;
   border-radius: 3rem;
   background-color: #03669e;
+}
+
+.center-text {
+  padding-top: 1rem;
+}
+.confirm-message {
+  margin-top: 2rem;
 }
