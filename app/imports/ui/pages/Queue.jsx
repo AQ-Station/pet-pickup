@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Feed, Icon, Image, Header, Segment, Message } from 'semantic-ui-react';
+import { Grid, Feed, Icon, Header, Segment, Message } from 'semantic-ui-react';
 
 /** A simple static component to render some text for the landing page. */
 class Queue extends React.Component {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 
@@ -61,14 +61,14 @@ export default class Signin extends React.Component {
                   onChange={this.handleChange}
                 />
                 <Form.Input
-                    label="Phone"
-                    id="signin-form-phone"
-                    icon="user"
-                    iconPosition="left"
-                    name="phone"
-                    type="phone"
-                    placeholder="Phone Number (Ex: 808-123-4567)"
-                    onChange={this.handleChange}
+                  label="Phone"
+                  id="signin-form-phone"
+                  icon="user"
+                  iconPosition="left"
+                  name="phone"
+                  type="phone"
+                  placeholder="Phone Number (Ex: 808-123-4567)"
+                  onChange={this.handleChange}
                 />
                 <Form.Input
                   label="Pet Code"
