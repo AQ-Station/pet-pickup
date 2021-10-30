@@ -35,6 +35,10 @@ class Queue extends React.Component {
             <Segment attached>
               360 minutes
             </Segment>
+            <Message warning attached='bottom'>
+              <Icon name='warning' />
+              There is no shade outside of the office.
+            </Message>
           </Segment>
         </Grid.Column>
       </Grid>
