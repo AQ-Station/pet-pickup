@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Grid, Header, Icon, Modal } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 class ConfirmCheckIn extends React.Component {
@@ -26,13 +27,18 @@ class ConfirmCheckIn extends React.Component {
               <Icon name='map' size='huge'/> {/* Placeholder */}
             </Grid.Column>
             <Grid.Column>
-              <Header as="h3">By clicking confirm, you indicate that you are in vicinity of our offices. You will then be put into queue for when you will be able to sign out your pet. Otherwise, click cancel until you are near our offices.</Header>
+              <Header as="h3">
+                By clicking confirm, you indicate that you are in vicinity of our offices. You will then be put into a queue for when you will be able to sign out your pet. Otherwise, click cancel until you are near our offices.
+              </Header>
             </Grid.Column>
           </Grid>
         </Modal.Content>
         <Modal.Actions>
-          <Button negative>Wait</Button>
-          <Button positive>Confirm Check-In</Button>
+          <Button negative content="Wait"
+            onClick={() => this.setState({ open: false })}/>
+          <Button positive content="Confirm Check-In"
+            onClick={() => this.setState({ setOpen: false })}
+            as={NavLink} activeClassName="active" exact to="/queue"/>
         </Modal.Actions>
       </Modal>
     );
