@@ -63,7 +63,7 @@ export default class Signin extends React.Component {
                 <Form.Input
                   label="Phone"
                   id="signin-form-phone"
-                  icon="user"
+                  icon="clockwise rotated phone"
                   iconPosition="left"
                   name="phone"
                   type="phone"
@@ -80,6 +80,9 @@ export default class Signin extends React.Component {
                   type="password"
                   onChange={this.handleChange}
                 />
+                <div className="app">
+                  <Form.Button id="signin-form-status" onClick="createDiv()">Add a Code</Form.Button>
+                </div>
                 <Form.Button id="signin-form-status" content="Check Your Pet Status"/>
               </Segment>
             </Form>
