@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Button, Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
 
 /**
  * Signin page overrides the form’s submit event and call Meteor’s loginWithPassword().
@@ -80,7 +81,9 @@ export default class Signin extends React.Component {
                   type="password"
                   onChange={this.handleChange}
                 />
-                <Form.Button id="signin-form-status" content="Check Your Pet Status"/>
+                <Button positive content="Check Pet Status"
+                        onClick={() => this.setState({ setOpen: false })}
+                        as={NavLink} activeClassName="active" exact to="/petstatus"/>
               </Segment>
             </Form>
             {this.state.error === '' ? (

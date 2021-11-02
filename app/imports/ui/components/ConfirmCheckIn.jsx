@@ -22,7 +22,7 @@ class ConfirmCheckIn extends React.Component {
         <Modal.Header>Confirm Check-In</Modal.Header>
         <Modal.Content>
           <Grid container centered verticalAlign='middle' columns={2}>
-            <Grid.Column textAlign='ceter'>
+            <Grid.Column textAlign='center'>
               <Icon name='map' size='huge'/> {/* Placeholder */}
             </Grid.Column>
             <Grid.Column>
