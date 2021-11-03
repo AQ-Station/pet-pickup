@@ -13,10 +13,12 @@ import AddStuff from '../pages/AddStuff';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
+import SigninAdmin from '../pages/SigninAdmin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import Queue from '../pages/Queue';
 import PetReadyMessage from '../pages/PetReadyMessage';
+import AddPet from '../pages/AddPet';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -28,6 +30,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={Landing}/>
             <Route path="/signin" component={Signin}/>
+            <Route path="/signinadmin" component={SigninAdmin}/>
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
             <Route path="/petstatus" component={PetReadyMessage}/>
@@ -36,6 +39,7 @@ class App extends React.Component {
             <ProtectedRoute path="/queue" component={Queue}/>
             <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
             <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+            <AdminProtectedRoute path="/addpet" component={AddPet}/>
             <Route component={NotFound}/>
           </Switch>
           <Footer/>

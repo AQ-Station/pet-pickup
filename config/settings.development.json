@@ -1,7 +1,7 @@
 {
   "defaultAccounts": [
-    { "name": "Admin", "phone": "808-123-4567", "petcode": "123", "role": "admin" },
-    { "name": "John Foo", "phone": "808-123-4567", "petcode": "123" }
+    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
+    { "email": "john@foo.com", "password": "changeme" }
   ],
 
   "defaultData": [
