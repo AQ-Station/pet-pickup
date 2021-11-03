@@ -1,5 +1,7 @@
 import React from 'react';
-import { Button, Grid, Header, Icon, Modal } from 'semantic-ui-react';
+import { Button, Grid, Header, Icon, Image, Modal } from 'semantic-ui-react';
+import swal from 'sweetalert';
+// import { NavLink } from 'react-router-dom';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 class ConfirmCheckIn extends React.Component {
@@ -11,6 +13,11 @@ class ConfirmCheckIn extends React.Component {
     };
   }
 
+  alert() {
+    setTimeout(() => { swal('Check-In Confirmed!', 'Adding you the queue...', 'success'); }, 10);
+
+  }
+
   render() {
     return (
       <Modal
@@ -20,19 +27,23 @@ class ConfirmCheckIn extends React.Component {
         trigger={<Button inverted size="huge"> Check-In</Button>}
       >
         <Modal.Header>Confirm Check-In</Modal.Header>
-        <Modal.Content>
-          <Grid container centered verticalAlign='middle' columns={2}>
-            <Grid.Column textAlign='ceter'>
-              <Icon name='map' size='huge'/> {/* Placeholder */}
+        <Modal.Content image>
+          <Grid container doubling centered verticalAlign='middle' columns={2}>
+            <Grid.Column textAlign='center'>
+              <Image size='medium' src="/images/aaq-office.png" bordered/> {/* Possible Placeholder */}
             </Grid.Column>
             <Grid.Column>
-              <Header as="h3">By clicking confirm, you indicate that you are in vicinity of our offices. You will then be put into queue for when you will be able to sign out your pet. Otherwise, click cancel until you are near our offices.</Header>
+              <Header as="h3">
+                  By clicking confirm, you indicate that you are in vicinity of our offices. You will then be put into a queue for when you will be able to sign out your pet. Otherwise, click cancel until you are near our offices.
+              </Header>
             </Grid.Column>
           </Grid>
         </Modal.Content>
         <Modal.Actions>
-          <Button negative>Wait</Button>
-          <Button positive>Confirm Check-In</Button>
+          <Button negative content="Wait"
+            onClick={() => this.setState({ open: false })}/>
+          <Button positive content="Confirm Check-In"
+            onClick={() => this.alert()}/>
         </Modal.Actions>
       </Modal>
     );
