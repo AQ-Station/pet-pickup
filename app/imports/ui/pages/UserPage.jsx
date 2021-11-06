@@ -3,13 +3,13 @@ import { Meteor } from 'meteor/meteor';
 import { Header, Loader, Grid, Image, Card, Divider, Icon, List, Container, Button } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { Owners } from '../../api/owner/Owner';
-import { Stuffs } from '../../api/stuff/Stuff';
 import { Pets } from '../../api/pet/Pets';
 import ConfirmCheckIn from '../components/ConfirmCheckIn';
 
 class UserPage extends React.Component {
+
+  doesCodeExist = (currentValue) => Pets.collection.find({ microchipCode: currentValue }).count() > 0;
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
@@ -19,7 +19,7 @@ class UserPage extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
 
-    return ((Pets.collection.find({ microchipCode: this.props.owner.microchipCode }).count() > 0) ? (
+    return ((this.props.owner.microchipCode.every(this.doesCodeExist)) ? (
       <Grid container centered verticalAlign='middle' textAlign='center' columns={1} row={3} className='blue-background-body'>
         <Grid.Column textAlign='center'>
           <Icon inverted color='green' name='check circle' size='massive'/>
