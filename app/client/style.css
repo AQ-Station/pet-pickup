@@ -61,6 +61,11 @@
   }
 }
 
+.center-confirmation {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 .center-text {
   padding-top: 1rem;
 }

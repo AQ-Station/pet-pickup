@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Grid, Header, Icon, Image, Modal } from 'semantic-ui-react';
+import { Button, Grid, Header, Image, Modal } from 'semantic-ui-react';
 import swal from 'sweetalert';
 // import { NavLink } from 'react-router-dom';
 
@@ -26,7 +26,7 @@ class ConfirmCheckIn extends React.Component {
         open={this.state.open}
         trigger={<Button inverted size="huge"> Check-In</Button>}
       >
-        <Modal.Header>Confirm Check-In</Modal.Header>
+        <Header icon='map' content='Confirm Check-In'/>
         <Modal.Content image>
           <Grid container doubling centered verticalAlign='middle' columns={2}>
             <Grid.Column textAlign='center'>
@@ -40,10 +40,14 @@ class ConfirmCheckIn extends React.Component {
           </Grid>
         </Modal.Content>
         <Modal.Actions>
-          <Button negative content="Wait"
-            onClick={() => this.setState({ open: false })}/>
-          <Button positive content="Confirm Check-In"
-            onClick={() => this.alert()}/>
+          <Grid relaxed padded centered columns={1}>
+            <Grid.Row textAlign="center">
+              <Button negative size="huge" content="Wait"
+                onClick={() => this.setState({ open: false })}/>
+              <Button positive size="huge" content="Confirm Check-In"
+                onClick={() => this.alert()}/>
+            </Grid.Row>
+          </Grid>
         </Modal.Actions>
       </Modal>
     );
