@@ -17,7 +17,7 @@ class Signup extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { cats: [{ microchipcode: '' }], email: '', firstname: '', lastname: '', phonenumber: '', microchipcode: '', redirectToReferer: false };
+    this.state = { cats: [{ microchipcode: '' }], email: '', firstname: '', lastname: '', phonenumber: '', microchipcode: '', password: '', redirectToReferer: false };
   }
 
   handleDropdownChange = (e, { value }) => this.setState({ value })
@@ -58,85 +58,110 @@ class Signup extends React.Component {
     }
     const { cats } = this.state;
     return (
-      <Form onSubmit={this.submit}>
-        <Form.Input
-          label="Email"
-          id="signup-form-email"
-          icon="user"
-          iconPosition="left"
-          name="email"
-          type="email"
-          placeholder="E-mail address"
-          onChange={this.handleChange}
-        />
-        <Form.Input
-          fluid
-          required
-          label="First Name"
-          id="signup-form-firstname"
-          icon="user"
-          iconPosition="left"
-          name="firstname"
-          placeholder="First Name"
-          type="firstname"
-          onChange={this.handleChange}
-        />
-        <Form.Input
-          fluid
-          required
-          label="Last Name"
-          id="signup-form-lastname"
-          icon="user"
-          iconPosition="left"
-          name="lastname"
-          placeholder="Last Name"
-          type="lastname"
-          onChange={this.handleChange}
-        />
-        <Form.Input
-          fluid
-          required
-          label="Phone Number"
-          id="signup-form-phonenumber"
-          icon="user"
-          iconPosition="left"
-          name="phonenumber"
-          placeholder="Last Name"
-          type="phonenumber"
-          onChange={this.handleChange}
-        />
-        <button onClick={this.addCat}>Add Microchip Code</button>
-        {
-          cats.map((val, idx) => {
-            const catId = `cat-${idx}`;
-            return (
-              <div key={idx}>
-                <label htmlFor={catId}>{`Microchip #${idx + 1}`}</label>
+      <Container id="signup-page">
+        <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
+          <Grid.Column>
+            <Header as="h2" textAlign="center" inverted>
+                Register your account
+            </Header>
+            <Form onSubmit={this.submit}>
+              <Segment stacked>
                 <Form.Input
-                  id="signup-form-microchipcode"
-                  icon="paw"
+                  label="Email"
+                  id="signup-form-email"
+                  icon="user"
                   iconPosition="left"
-                  name="microchipcode"
-                  type="microchipcode"
-                  placeholder="Microchip Code"
+                  name="email"
+                  type="email"
+                  placeholder="E-mail address"
                   onChange={this.handleChange}
                 />
-              </div>
-            );
-          })
-        }
-        <Form.Input
-          label="Password"
-          id="signup-form-password"
-          icon="lock"
-          iconPosition="left"
-          name="password"
-          placeholder="Password"
-          type="password"
-          onChange={this.handleChange}
-        />
-        <input type="submit" value="Submit" />
-      </Form>
+                <Form.Input
+                  fluid
+                  required
+                  label="First Name"
+                  id="signup-form-firstname"
+                  icon="user"
+                  iconPosition="left"
+                  name="firstname"
+                  placeholder="First Name"
+                  type="firstname"
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  fluid
+                  required
+                  label="Last Name"
+                  id="signup-form-lastname"
+                  icon="user"
+                  iconPosition="left"
+                  name="lastname"
+                  placeholder="Last Name"
+                  type="lastname"
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  fluid
+                  required
+                  label="Phone Number"
+                  id="signup-form-phonenumber"
+                  icon="user"
+                  iconPosition="left"
+                  name="phonenumber"
+                  placeholder="Last Name"
+                  type="phonenumber"
+                  onChange={this.handleChange}
+                />
+                {
+                  cats.map((val, idx) => {
+                    const catId = `cat-${idx}`;
+                    return (
+                      <div key={idx}>
+                        <label htmlFor={catId}>{`Microchip #${idx + 1}`}</label>
+                        <Form.Input
+                          id="signup-form-microchipcode"
+                          icon="paw"
+                          action={
+                            <Button onClick={this.addCat} icon="plus"/>
+                          }
+                          iconPosition="left"
+                          name="microchipcode"
+                          type="microchipcode"
+                          placeholder="Microchip Code"
+                          onChange={this.handleChange}
+                        />
+                      </div>
+                    );
+                  })
+                }
+                <Form.Input
+                  label="Password"
+                  id="signup-form-password"
+                  icon="lock"
+                  iconPosition="left"
+                  name="password"
+                  placeholder="Password"
+                  type="password"
+                  onChange={this.handleChange}
+                />
+                <Form.Button id="signup-form-submit" content="Submit"/>
+              </Segment>
+            </Form>
+            <Message>
+                Already have an account? Login <Link to="/signin">here</Link>
+            </Message>
+            {this.state.error === '' ? (
+              ''
+            ) : (
+              <Message
+                error
+                header="Registration was not successful"
+                content={this.state.error}
+              />
+            )}
+          </Grid.Column>
+        </Grid>
+      </Container>
     );
   }
 }
