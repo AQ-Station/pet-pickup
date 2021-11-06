@@ -13,10 +13,9 @@
   margin-top: 2rem;
 }
 .notReady-background{
-  background: url("images/pet-background2.png");
-  background-repeat: no-repeat;
-  height: 400px;
-  background-size: 100% 100%;
+  background: url("images/pet-background2.png") no-repeat;
+  height: 300vmax;
+  background-size: 100%;
 }
 .notReady-background-container{
   position:relative;
