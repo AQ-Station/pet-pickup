@@ -5,6 +5,7 @@ class Footer extends React.Component {
   render() {
     const divStyle = { paddingTop: '15px' };
     return (
+        <div className="full-background">
       <footer>
         <div style={divStyle} className="ui center aligned container">
           <hr />
@@ -13,6 +14,7 @@ class Footer extends React.Component {
           <a href="https://github.com/AQ-Station/pet-pickup">GitHub Repo Page</a>
         </div>
       </footer>
+  </div>
     );
   }
 }

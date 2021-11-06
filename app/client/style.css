@@ -66,6 +66,14 @@
   margin-right: auto !important;
 }
 
+/*navbar-color{
+
+}*/
+
+.full-background {
+  background-color: #03669e;
+}
+
 .center-text {
   padding-top: 1rem;
 }

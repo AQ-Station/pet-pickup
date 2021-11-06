@@ -58,6 +58,7 @@ class Signup extends React.Component {
     }
     const { cats } = this.state;
     return (
+        <div className="full-background">
       <Container id="signup-page">
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
           <Grid.Column>
@@ -65,7 +66,7 @@ class Signup extends React.Component {
                 Check Pet Status
             </Header>
             <Form onSubmit={this.submit}>
-              <Segment stacked>
+              <Segment className="ui secondary blue inverted segment" stacked>
                 <Form.Input
                   label="Email"
                   id="signup-form-email"
@@ -73,6 +74,7 @@ class Signup extends React.Component {
                   iconPosition="left"
                   name="email"
                   type="email"
+                  color="red"
                   placeholder="E-mail address"
                   onChange={this.handleChange}
                 />
@@ -150,6 +152,7 @@ class Signup extends React.Component {
           </Grid.Column>
         </Grid>
       </Container>
+        </div>
     );
   }
 }
