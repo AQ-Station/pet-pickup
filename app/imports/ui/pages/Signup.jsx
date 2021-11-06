@@ -1,14 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
-import {
-  Form,
-  Grid,
-  Container,
-  Message,
-  Segment,
-  Header,
-} from 'semantic-ui-react';
+import { Form, Grid, Container, Message, Segment, Header } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
 import { Owners } from '../../api/owner/Owner';
 
