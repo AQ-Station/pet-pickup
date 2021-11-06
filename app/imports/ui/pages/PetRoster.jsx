@@ -45,7 +45,7 @@ class PetRoster extends React.Component {
 
 // Require an array of Stuff documents in the props.
 PetRoster.propTypes = {
-  pet: PropTypes.array.isRequired,
+  pets: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 

@@ -6,7 +6,7 @@ class Queue extends React.Component {
   render() {
     return (
     /*  <Grid columns='equal' padded> */
-      <div className="blue-background-body">
+      <div className="blue-background-body2">
         <Grid centered stackable columns={3}>
 
           <Grid.Column mobile={16} tablet={10} computer={10}>

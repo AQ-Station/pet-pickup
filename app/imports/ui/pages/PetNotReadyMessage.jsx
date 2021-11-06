@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button, Container, Grid, Header, } from 'semantic-ui-react';
-
+import { Button, Container, Grid, Header } from 'semantic-ui-react';
 
 /** A simple static component to render some text for the landing page. */
 class PetNotReadyMessage extends React.Component {
