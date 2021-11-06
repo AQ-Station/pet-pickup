@@ -23,25 +23,22 @@ class UserPage extends React.Component {
       <Grid container centered verticalAlign='middle' textAlign='center' columns={1} row={3} className='blue-background-body'>
         <Grid.Column textAlign='center'>
           <Icon inverted color='green' name='check circle' size='massive'/>
-          <Header as='h1' inverted className='center-text'>Your pet is ready for pickup!</Header>
+          <Header as='h1' inverted className='center-text'>Your pet is ready!</Header>
           <div className='confirm-message'>
             <ConfirmCheckIn/>
           </div>
         </Grid.Column>
+
       </Grid>
     ) : (
-      <Container mobile={16} tablet={10} computer={10}>
-        <div className = 'notReady-background' >
-          <div className = 'notReady-background-container'>
-            <Grid centered columns={2}>
-              <Grid.Column textAlign='center'>
-                <Header inverted size='huge' >Your pet is not ready for pick up!</Header>
-                <Button> Refresh </Button>
-              </Grid.Column>
-            </Grid>
-          </div>
-        </div>
-      </Container>
+      <Container>
+        <div className = 'notReady-background'>
+          <Grid centered columns={2}>
+            <Grid.Column textAlign='center'>
+              <Header inverted size='huge' >Your pet is not ready for pick up!</Header>
+              <Button> Refresh </Button>
+            </Grid.Column>
+          </Grid> </div></Container>
     )
     );
   }

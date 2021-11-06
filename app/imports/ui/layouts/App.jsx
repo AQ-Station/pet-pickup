@@ -21,6 +21,7 @@ import PetReadyMessage from '../pages/PetReadyMessage';
 import PetForm from '../pages/PetForm';
 import PetEditForm from '../pages/PetEditForm';
 import PetRoster from '../pages/PetRoster';
+import Queue from '../pages/Queue';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -35,6 +36,7 @@ class App extends React.Component {
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
             <Route path="/petstatus" component={PetReadyMessage}/>
+            <ProtectedRoute path="/queue" component={Queue}/>
             <ProtectedRoute path="/list" component={ListStuff}/>
             <ProtectedRoute path="/add" component={AddStuff}/>
             <ProtectedRoute path="/addpet" component={AddPets}/>
