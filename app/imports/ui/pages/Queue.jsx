@@ -26,7 +26,7 @@ class Queue extends React.Component {
         </Grid.Column>
         <Grid.Column mobile={16} tablet={10} computer={10}>
           <Segment><Header as='h2' icon textAlign='center'>
-            <Icon name='users' circular />
+            <Icon name='users' circular color="blue"/>
             <Header.Content>You are number 28 in line</Header.Content>
           </Header>
           </Segment>
