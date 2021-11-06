@@ -32,8 +32,8 @@ class UserPage extends React.Component {
 
       </Grid>
     ) : (
-      <Container>
-        <div className = 'notReady-background'>
+      <Container mobile={16} tablet={10} computer={10}>
+        <div className = 'notReady-background' >
           <div className = 'notReady-background-container'>
             <Grid centered columns={2}>
               <Grid.Column textAlign='center'>
