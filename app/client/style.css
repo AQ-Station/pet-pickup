@@ -12,3 +12,13 @@
 .confirm-message {
   margin-top: 2rem;
 }
+.notReady-background{
+  background: url("images/pet-background2.png");
+  background-repeat: no-repeat;
+  height: 400px;
+  background-size: 100% 100%;
+}
+.notReady-background-container{
+  position:relative;
+  top:40px;
+}
