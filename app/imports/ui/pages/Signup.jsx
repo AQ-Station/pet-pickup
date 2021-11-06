@@ -1,15 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
-import {
-  Form,
-  Grid,
-  Container,
-  Message,
-  Segment,
-  Header,
-  Button,
-} from 'semantic-ui-react';
+import { Redirect } from 'react-router-dom';
+import { Form, Grid, Container, Segment, Header, Button } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
 import { Owners } from '../../api/owner/Owner';
 
@@ -58,101 +50,101 @@ class Signup extends React.Component {
     }
     const { cats } = this.state;
     return (
-        <div className="full-background">
-      <Container id="signup-page">
-        <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">
+      <div className="full-background">
+        <Container id="signup-page">
+          <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
+            <Grid.Column>
+              <Header as="h2" textAlign="center">
                 Check Pet Status
-            </Header>
-            <Form onSubmit={this.submit}>
-              <Segment className="ui secondary blue inverted segment" stacked>
-                <Form.Input
-                  label="Email"
-                  id="signup-form-email"
-                  icon="user"
-                  iconPosition="left"
-                  name="email"
-                  type="email"
-                  color="red"
-                  placeholder="E-mail address"
-                  onChange={this.handleChange}
-                />
-                <Form.Input
-                  fluid
-                  required
-                  label="First Name"
-                  id="signup-form-firstname"
-                  icon="user"
-                  iconPosition="left"
-                  name="firstname"
-                  placeholder="First Name"
-                  type="firstname"
-                  onChange={this.handleChange}
-                />
-                <Form.Input
-                  fluid
-                  required
-                  label="Last Name"
-                  id="signup-form-lastname"
-                  icon="user"
-                  iconPosition="left"
-                  name="lastname"
-                  placeholder="Last Name"
-                  type="lastname"
-                  onChange={this.handleChange}
-                />
-                <Form.Input
-                  fluid
-                  required
-                  label="Phone Number"
-                  id="signup-form-phonenumber"
-                  icon="user"
-                  iconPosition="left"
-                  name="phonenumber"
-                  placeholder="Last Name"
-                  type="phonenumber"
-                  onChange={this.handleChange}
-                />
-                {
-                  cats.map((val, idx) => {
-                    const catId = `cat-${idx}`;
-                    return (
-                      <div key={idx}>
-                        <label htmlFor={catId}>{`Microchip #${idx + 1}`}</label>
-                        <Form.Input
-                          id="signup-form-microchipcode"
-                          icon="paw"
-                          action={
-                            <Button onClick={this.addCat} icon="plus"/>
-                          }
-                          iconPosition="left"
-                          name="microchipcode"
-                          type="microchipcode"
-                          placeholder="Microchip Code"
-                          onChange={this.handleChange}
-                        />
-                      </div>
-                    );
-                  })
-                }
-                <Form.Input
-                  label="Password"
-                  id="signup-form-password"
-                  icon="lock"
-                  iconPosition="left"
-                  name="password"
-                  placeholder="Password"
-                  type="password"
-                  onChange={this.handleChange}
-                />
-                <Form.Button id="signup-form-submit" content="Submit"/>
-              </Segment>
-            </Form>
-          </Grid.Column>
-        </Grid>
-      </Container>
-        </div>
+              </Header>
+              <Form onSubmit={this.submit}>
+                <Segment className="ui secondary blue inverted segment" stacked>
+                  <Form.Input
+                    label="Email"
+                    id="signup-form-email"
+                    icon="user"
+                    iconPosition="left"
+                    name="email"
+                    type="email"
+                    color="red"
+                    placeholder="E-mail address"
+                    onChange={this.handleChange}
+                  />
+                  <Form.Input
+                    fluid
+                    required
+                    label="First Name"
+                    id="signup-form-firstname"
+                    icon="user"
+                    iconPosition="left"
+                    name="firstname"
+                    placeholder="First Name"
+                    type="firstname"
+                    onChange={this.handleChange}
+                  />
+                  <Form.Input
+                    fluid
+                    required
+                    label="Last Name"
+                    id="signup-form-lastname"
+                    icon="user"
+                    iconPosition="left"
+                    name="lastname"
+                    placeholder="Last Name"
+                    type="lastname"
+                    onChange={this.handleChange}
+                  />
+                  <Form.Input
+                    fluid
+                    required
+                    label="Phone Number"
+                    id="signup-form-phonenumber"
+                    icon="user"
+                    iconPosition="left"
+                    name="phonenumber"
+                    placeholder="Last Name"
+                    type="phonenumber"
+                    onChange={this.handleChange}
+                  />
+                  {
+                    cats.map((val, idx) => {
+                      const catId = `cat-${idx}`;
+                      return (
+                        <div key={idx}>
+                          <label htmlFor={catId}>{`Microchip #${idx + 1}`}</label>
+                          <Form.Input
+                            id="signup-form-microchipcode"
+                            icon="paw"
+                            action={
+                              <Button onClick={this.addCat} icon="plus"/>
+                            }
+                            iconPosition="left"
+                            name="microchipcode"
+                            type="microchipcode"
+                            placeholder="Microchip Code"
+                            onChange={this.handleChange}
+                          />
+                        </div>
+                      );
+                    })
+                  }
+                  <Form.Input
+                    label="Password"
+                    id="signup-form-password"
+                    icon="lock"
+                    iconPosition="left"
+                    name="password"
+                    placeholder="Password"
+                    type="password"
+                    onChange={this.handleChange}
+                  />
+                  <Form.Button id="signup-form-submit" content="Submit"/>
+                </Segment>
+              </Form>
+            </Grid.Column>
+          </Grid>
+        </Container>
+      </div>
     );
   }
 }
