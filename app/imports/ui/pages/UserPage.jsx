@@ -9,6 +9,10 @@ import ConfirmCheckIn from '../components/ConfirmCheckIn';
 
 class UserPage extends React.Component {
 
+  refreshPage() {
+    window.location.reload(false);
+  }
+
   doesCodeExist = (currentValue) => Pets.collection.find({ microchipCode: currentValue }).count() > 0;
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
@@ -37,7 +41,7 @@ class UserPage extends React.Component {
             <Grid centered columns={2}>
               <Grid.Column textAlign='center'>
                 <Header inverted size='huge' >Your pet is not ready for pick up!</Header>
-                <Button> Refresh </Button>
+                <Button onClick={this.refreshPage}> Refresh </Button>
               </Grid.Column>
             </Grid>
           </div>
