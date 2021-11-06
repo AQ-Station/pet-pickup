@@ -1,49 +1,68 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import {
+  Form,
+  Grid,
+  Container,
+  Message,
+  Segment,
+  Header,
+  Button,
+} from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
+import { Owners } from '../../api/owner/Owner';
 
-/**
- * Signup component is similar to signin component, but we create a new user instead.
- */
 class Signup extends React.Component {
-  /* Initialize state fields. */
+
   constructor(props) {
     super(props);
-    this.state = { email: '', password: '', error: '', redirectToReferer: false };
+    this.state = { cats: [{ microchipcode: '' }], email: '', firstname: '', lastname: '', phonenumber: '', microchipcode: '', password: '', redirectToReferer: false };
   }
 
-  /* Update the form controls each time the user interacts with them. */
-  handleChange = (e, { name, value }) => {
-    this.setState({ [name]: value });
+  handleDropdownChange = (e, { value }) => this.setState({ value })
+
+  handleChange = (e) => {
+    if (['microchipcode'].includes(e.target.className)) {
+      const cats = [...this.state.cats];
+      cats[e.target.dataset.id][e.target.className] = e.target.value;
+      this.setState({ cats }, () => console.log(this.state.cats));
+    } else {
+      this.setState({ [e.target.name]: e.target.value });
+    }
   }
 
-  /* Handle Signup submission. Create user account and a profile entry, then redirect to the home page. */
+  addCat = () => {
+    this.setState((prevState) => ({
+      cats: [...prevState.cats, { name: '', age: '' }],
+    }));
+  }
+
   submit = () => {
-    const { email, password } = this.state;
+    const { email, firstname, lastname, phonenumber, microchipcode, password } = this.state;
     Accounts.createUser({ email, username: email, password }, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {
+        Owners.collection.insert({ firstName: firstname, lastName: lastname, phoneNumber: phonenumber, microchipCode: microchipcode, email });
         this.setState({ error: '', redirectToReferer: true });
       }
     });
   }
 
-  /* Display the signup form. Redirect to add page after successful registration and login. */
   render() {
-    const { from } = this.props.location.state || { from: { pathname: '/add' } };
+    const { from } = this.props.location.state || { from: { pathname: '/user' } };
     // if correct authentication, redirect to from: page instead of signup screen
     if (this.state.redirectToReferer) {
       return <Redirect to={from}/>;
     }
+    const { cats } = this.state;
     return (
       <Container id="signup-page">
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
           <Grid.Column>
             <Header as="h2" textAlign="center">
-              Register your account
+                Check Pet Status
             </Header>
             <Form onSubmit={this.submit}>
               <Segment stacked>
@@ -58,6 +77,64 @@ class Signup extends React.Component {
                   onChange={this.handleChange}
                 />
                 <Form.Input
+                  fluid
+                  required
+                  label="First Name"
+                  id="signup-form-firstname"
+                  icon="user"
+                  iconPosition="left"
+                  name="firstname"
+                  placeholder="First Name"
+                  type="firstname"
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  fluid
+                  required
+                  label="Last Name"
+                  id="signup-form-lastname"
+                  icon="user"
+                  iconPosition="left"
+                  name="lastname"
+                  placeholder="Last Name"
+                  type="lastname"
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  fluid
+                  required
+                  label="Phone Number"
+                  id="signup-form-phonenumber"
+                  icon="user"
+                  iconPosition="left"
+                  name="phonenumber"
+                  placeholder="Last Name"
+                  type="phonenumber"
+                  onChange={this.handleChange}
+                />
+                {
+                  cats.map((val, idx) => {
+                    const catId = `cat-${idx}`;
+                    return (
+                      <div key={idx}>
+                        <label htmlFor={catId}>{`Microchip #${idx + 1}`}</label>
+                        <Form.Input
+                          id="signup-form-microchipcode"
+                          icon="paw"
+                          action={
+                            <Button onClick={this.addCat} icon="plus"/>
+                          }
+                          iconPosition="left"
+                          name="microchipcode"
+                          type="microchipcode"
+                          placeholder="Microchip Code"
+                          onChange={this.handleChange}
+                        />
+                      </div>
+                    );
+                  })
+                }
+                <Form.Input
                   label="Password"
                   id="signup-form-password"
                   icon="lock"
@@ -70,18 +147,6 @@ class Signup extends React.Component {
                 <Form.Button id="signup-form-submit" content="Submit"/>
               </Segment>
             </Form>
-            <Message>
-              Already have an account? Login <Link to="/signin">here</Link>
-            </Message>
-            {this.state.error === '' ? (
-              ''
-            ) : (
-              <Message
-                error
-                header="Registration was not successful"
-                content={this.state.error}
-              />
-            )}
           </Grid.Column>
         </Grid>
       </Container>
@@ -89,7 +154,6 @@ class Signup extends React.Component {
   }
 }
 
-/* Ensure that the React Router location object is available in case we need to redirect. */
 Signup.propTypes = {
   location: PropTypes.object,
 };
