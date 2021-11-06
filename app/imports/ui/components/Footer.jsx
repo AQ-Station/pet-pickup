@@ -5,6 +5,7 @@ class Footer extends React.Component {
   render() {
     const divStyle = { paddingTop: '15px' };
     return (
+        <div className="full-background">
       <footer>
         <div style={divStyle} className="ui center aligned container">
           <hr />
@@ -14,6 +15,7 @@ class Footer extends React.Component {
           <a href="http://ics-software-engineering.github.io/meteor-application-template-react">Template Home Page</a>
         </div>
       </footer>
+  </div>
     );
   }
 }
