@@ -5,11 +5,14 @@ import { Grid, Feed, Icon, Image, Header, Segment, Message } from 'semantic-ui-r
 class Queue extends React.Component {
   render() {
     return (
-      <Grid columns='equal' padded>
-        <Grid.Column>
-          <Segment><Feed size='small'>
-            <Header as='h4'>Announcements</Header>
+    /*  <Grid columns='equal' padded> */
+        <div className="blue-background-body">
+        <Grid centered stackable columns={3}>
 
+        <Grid.Column mobile={16} tablet={10} computer={10}>
+          <Segment>
+            <Feed>
+            <Header as='h4'>Announcements</Header>
             <Feed.Event>
               <Feed.Content>
                 <Feed.Summary>
@@ -18,16 +21,17 @@ class Queue extends React.Component {
                   Thank you for your patience! We look forward to assisting you as soon as possible.</Feed.Summary>
               </Feed.Content>
             </Feed.Event>
-          </Feed></Segment>
+          </Feed>
+          </Segment>
         </Grid.Column>
-        <Grid.Column width={8}>
+        <Grid.Column mobile={16} tablet={10} computer={10}>
           <Segment><Header as='h2' icon textAlign='center'>
             <Icon name='users' circular />
             <Header.Content>You are number 28 in line</Header.Content>
           </Header>
           </Segment>
         </Grid.Column>
-        <Grid.Column>
+        <Grid.Column mobile={16} tablet={10} computer={10}>
           <Segment>
             <Header as='h4' attached='top'>
               Approximate Wait Time
@@ -42,6 +46,7 @@ class Queue extends React.Component {
           </Segment>
         </Grid.Column>
       </Grid>
+        </div>
     );
   }
 }
