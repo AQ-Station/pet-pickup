@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Header, Loader, Grid, Image, Card, Divider, Icon, List, Container, Button } from 'semantic-ui-react';
+import { Header, Loader, Grid, Icon, Container, Button } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Owners } from '../../api/owner/Owner';
@@ -23,13 +23,11 @@ class UserPage extends React.Component {
       <Grid container centered verticalAlign='middle' textAlign='center' columns={1} row={3} className='blue-background-body'>
         <Grid.Column textAlign='center'>
           <Icon inverted color='green' name='check circle' size='massive'/>
-          <Header as='h1' inverted className='center-text'>Your pet is ready!</Header>
+          <Header as='h1' inverted className='center-text'>Your pet is ready for pickup!</Header>
           <div className='confirm-message'>
             <ConfirmCheckIn/>
           </div>
-
         </Grid.Column>
-
       </Grid>
     ) : (
       <Container>
