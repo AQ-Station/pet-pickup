@@ -19,6 +19,8 @@ class OwnersCollection {
       phoneNumber: String,
       microchipCode: { type: Array },
       'microchipCode.$': { type: String },
+      inWaitlist: { type: Boolean, optional: true },
+      waitlistPos: { type: Number, optional: true, defaultValue: 5 },
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);

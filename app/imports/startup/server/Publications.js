@@ -1,18 +1,11 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Stuffs } from '../../api/stuff/Stuffs';
 import { Pets } from '../../api/pet/Pets';
 import { Owners } from '../../api/owner/Owner';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
-Meteor.publish(Stuffs.userPublicationName, function () {
-  if (this.userId) {
-
-    return Stuffs.collection.find();
-  }
-  return this.ready();
-});
 
 Meteor.publish(Owners.userPublicationName, function () {
   if (this.userId) {
@@ -34,6 +27,20 @@ Meteor.publish(Stuffs.adminPublicationName, function () {
 Meteor.publish(Pets.userPublicationName, function () {
   if (this.userId) {
     return Pets.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(Stuffs.userPublicationName, function () {
+  if (this.userId) {
+    return Stuffs.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(Owners.userPublicationName, function () {
+  if (this.userId) {
+    return Owners.collection.find();
   }
   return this.ready();
 });

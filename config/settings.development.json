@@ -10,7 +10,7 @@
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
   "defaultOwners": [
-    {"firstName":  "Maegan", "lastName": "Chow", "email": "maegan@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "1234561"},
+    {"firstName":  "Maegan", "lastName": "Chow", "email": "maegan@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "1234561", "waitlistPos":  "5"},
     {"firstName":  "Nhan", "lastName": "Bui", "email": "nhan@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "1234562"},
     {"firstName":  "Germaine", "lastName": "Juan", "email": "germaine@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "1234563"},
     {"firstName":  "Kha", "lastName": "Bui", "email": "kha@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "1234564"}],

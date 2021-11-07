@@ -1,9 +1,22 @@
 import React from 'react';
-import { Grid, Feed, Icon, Header, Segment, Message } from 'semantic-ui-react';
+import { Grid, Feed, Icon, Header, Segment, Message, Loader } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import { Meteor } from 'meteor/meteor';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Owners } from '../../api/owner/Owner';
+import { Pets } from '../../api/pet/Pets';
+import { Stuffs } from '../../api/stuff/Stuffs';
 
 /** A simple static component to render some text for the landing page. */
 class Queue extends React.Component {
+
   render() {
+    return (this.props.ready) ? this.renderPage() : <Loader active>Creating Your Profile</Loader>;
+  }
+
+  // Render the page once subscriptions have been received.
+  renderPage() {
+
     return (
     /*  <Grid columns='equal' padded> */
       <div className="blue-background-body2">
@@ -27,7 +40,7 @@ class Queue extends React.Component {
           <Grid.Column mobile={16} tablet={10} computer={10}>
             <Segment><Header as='h2' icon textAlign='center'>
               <Icon name='users' circular color="blue"/>
-              <Header.Content>You are number 28 in line</Header.Content>
+              <Header.Content>You are position {this.props.owner.waitlistPos} </Header.Content>
             </Header>
             </Segment>
           </Grid.Column>
@@ -51,4 +64,21 @@ class Queue extends React.Component {
   }
 }
 
-export default Queue;
+Queue.propTypes = {
+  owner: PropTypes.object.isRequired,
+  ready: PropTypes.bool.isRequired,
+};
+
+export default withTracker(() => {
+  // Get access to Recipes documents.
+  const subscription = Meteor.subscribe(Owners.userPublicationName);
+  const subscription2 = Meteor.subscribe(Stuffs.userPublicationName);
+  // Determine if the subscription is ready
+  const ready = subscription.ready() && subscription2.ready();
+  // Get the Recipe that matches with the recipeID
+  const owner = Owners.collection.findOne();
+  return {
+    ready,
+    owner,
+  };
+})(Queue);

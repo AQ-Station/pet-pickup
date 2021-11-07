@@ -9,7 +9,7 @@ class Signup extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { cats: [{ microchipcode: '' }], email: '', firstname: '', lastname: '', phonenumber: '', microchipcode: '', password: '', redirectToReferer: false };
+    this.state = { cats: [{ microchipcode: '' }], email: '', firstname: '', lastname: '', phonenumber: '', microchipcode: '', password: '', waitlistPos: '', redirectToReferer: false };
   }
 
   handleDropdownChange = (e, { value }) => this.setState({ value })
@@ -31,12 +31,12 @@ class Signup extends React.Component {
   }
 
   submit = () => {
-    const { email, firstname, lastname, phonenumber, microchipcode, password } = this.state;
+    const { email, firstname, lastname, phonenumber, microchipcode, waitlistpos, password } = this.state;
     Accounts.createUser({ email, username: email, password }, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {
-        Owners.collection.insert({ firstName: firstname, lastName: lastname, phoneNumber: phonenumber, microchipCode: microchipcode, email });
+        Owners.collection.insert({ firstName: firstname, lastName: lastname, phoneNumber: phonenumber, microchipCode: microchipcode, waitlistPos: waitlistpos, email });
         this.setState({ error: '', redirectToReferer: true });
       }
     });
