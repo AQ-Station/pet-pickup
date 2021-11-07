@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Grid, Header, Image, Modal } from 'semantic-ui-react';
 import swal from 'sweetalert';
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 class ConfirmCheckIn extends React.Component {
@@ -45,7 +45,8 @@ class ConfirmCheckIn extends React.Component {
               <Button negative size="huge" content="Wait"
                 onClick={() => this.setState({ open: false })}/>
               <Button positive size="huge" content="Confirm Check-In"
-                onClick={() => this.alert()}/>
+                onClick={() => this.setState({ setOpen: false })}
+                as={NavLink} activeClassName="active" exact to="/queue"/>
             </Grid.Row>
           </Grid>
         </Modal.Actions>
