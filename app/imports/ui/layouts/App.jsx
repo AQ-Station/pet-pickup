@@ -22,6 +22,7 @@ import PetForm from '../pages/PetForm';
 import PetEditForm from '../pages/PetEditForm';
 import PetRoster from '../pages/PetRoster';
 import Queue from '../pages/Queue';
+import QueueCheckAdmin from '../pages/QueueCheckAdmin';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -46,6 +47,7 @@ class App extends React.Component {
             <ProtectedRoute path="/petroster" component={PetRoster}/>
             <AdminProtectedRoute path="/pet/edit/:_id" component={PetEditForm}/>
             <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+            <AdminProtectedRoute path="/queuecheck" component={QueueCheckAdmin}/>
             <Route component={NotFound}/>
           </Switch>
           <Footer/>

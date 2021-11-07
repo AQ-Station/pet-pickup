@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button, Grid, Header, Image, Modal } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import swal from 'sweetalert';
 // import { NavLink } from 'react-router-dom';
 
@@ -54,4 +56,9 @@ class ConfirmCheckIn extends React.Component {
   }
 }
 
-export default ConfirmCheckIn;
+ConfirmCheckIn.propTypes = {
+  microchipCode: PropTypes.array,
+  queueNumber: PropTypes.number,
+};
+
+export default withRouter(ConfirmCheckIn);

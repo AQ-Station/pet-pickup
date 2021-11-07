@@ -26,7 +26,7 @@ class NavBar extends React.Component {
           <Menu style={menuStyle} attached="top" inverted>
             <Button compact icon style={menuStyle}
               onClick={this.handleShowOnClick}>
-              <Icon name='bars' size="large" centered inverted/>
+              <Icon name='bars' size="large" inverted/>
             </Button>
             <Menu.Item as={NavLink} activeClassName="" exact to="/">
               <Header inverted as='h1'>
@@ -42,13 +42,13 @@ class NavBar extends React.Component {
             animation='overlay'
             icon='labeled'
             inverted
-            dimmed={visible}
             onHide={this.handleSidebarHide}
             vertical
             visible={visible}
           >
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/PetRoster" key='pr'>Pet Roster</Menu.Item>
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/PetRoster" key='pr'>Pet Roster</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/queuecheck" key='qc'>Queue Check</Menu.Item>
             ) : ''}
             {this.props.currentUser ? (
               [<Menu.Item key='username' color='grey'><Icon name="user circle"/>{this.props.currentUser}<Icon name="angle double down"/></Menu.Item>,

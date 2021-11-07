@@ -1,5 +1,10 @@
 import React from 'react';
 import { Grid, Feed, Icon, Header, Segment, Message } from 'semantic-ui-react';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Meteor } from 'meteor/meteor';
+import PropTypes from 'prop-types';
+import { Owners } from '../../api/owner/Owner';
+import { Pets } from '../../api/pet/Pets';
 
 /** A simple static component to render some text for the landing page. */
 class Queue extends React.Component {
@@ -27,7 +32,7 @@ class Queue extends React.Component {
           <Grid.Column mobile={16} tablet={10} computer={10}>
             <Segment><Header as='h2' icon textAlign='center'>
               <Icon name='users' circular color="blue"/>
-              <Header.Content>You are number 28 in line</Header.Content>
+              <Header.Content>You are number {this.props.owner.ownerConfirm} in line</Header.Content>
             </Header>
             </Segment>
           </Grid.Column>
@@ -51,4 +56,21 @@ class Queue extends React.Component {
   }
 }
 
-export default Queue;
+Queue.propTypes = {
+  owner: PropTypes.object.isRequired,
+};
+
+// withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
+export default withTracker(() => {
+  // Get access to Recipes documents.
+  const subscription = Meteor.subscribe(Owners.userPublicationName);
+  const subscription2 = Meteor.subscribe(Pets.userPublicationName);
+  // Determine if the subscription is ready
+  const ready = subscription.ready() && subscription2.ready();
+  // Get the Recipe that matches with the recipeID
+  const owner = Owners.collection.findOne();
+  return {
+    ready,
+    owner,
+  };
+})(Queue);
