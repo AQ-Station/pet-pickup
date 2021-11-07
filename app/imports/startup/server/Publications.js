@@ -38,13 +38,6 @@ Meteor.publish(Stuffs.userPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(Owners.userPublicationName, function () {
-  if (this.userId) {
-    return Owners.collection.find();
-  }
-  return this.ready();
-});
-
 Meteor.publish(Pets.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Pets.collection.find();
