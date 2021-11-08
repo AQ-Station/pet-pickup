@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 import { Owners } from '../../api/owner/Owner';
 
-/** Render a Not Found page if the user enters a URL that doesn't match any route. */
+/** Useless page - queue functionality will be transferred to another page. */
 class QueueCheckAdmin extends React.Component {
   collectionToArray = (ownerCollection) => {
     const listOfReadyOwners = [];
