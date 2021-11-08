@@ -21,6 +21,8 @@ class UserPage extends React.Component {
   changeReadyState() {
     const ownerConfirm = 'Ready';
     Owners.collection.update(this.props.owner._id, { $set: { ownerConfirm } });
+    Owners.collection.update(this.props.owner._id, { $set: { queueNumber: null } });
+
     swal('Check-In Confirmed!', 'Adding you the queue...', 'success');
 
   }

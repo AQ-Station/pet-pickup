@@ -20,11 +20,11 @@ class OwnersCollection {
       ownerConfirm: {
         type: String,
         allowedValues: ['Ready', 'Not Ready'],
-        defaultValue: 'Not Ready',
+        optional: true,
       },
       microchipCode: { type: Array },
       'microchipCode.$': { type: String },
-      queueNumber: { type: Number, optional: true, unique: true },
+      queueNumber: { type: Number, optional: true },
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);

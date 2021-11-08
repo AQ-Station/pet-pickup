@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container } from 'semantic-ui-react';
+import { Button, Container, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
@@ -8,12 +8,38 @@ import { Owners } from '../../api/owner/Owner';
 
 /** Render a Not Found page if the user enters a URL that doesn't match any route. */
 class QueueCheckAdmin extends React.Component {
-  updateQueue = (ownerCollection) => {
+  collectionToArray = (ownerCollection) => {
     const listOfReadyOwners = [];
 
-    _.map(ownerCollection, function (anOwner) { if (anOwner.ownerConfirm === 'Ready') { listOfReadyOwners.push(anOwner); } });
+    _.map(ownerCollection, function (anOwner) {
+      if (anOwner.ownerConfirm === 'Ready') {
+        listOfReadyOwners.push(anOwner);
+      }
+    });
+    return listOfReadyOwners;
+  }
 
-    /*    _.map(ownerCollection, function (anOwner) {
+  ownerArray = (list) => {
+    const arrayOfOwners = list;
+    const arrayLength = arrayOfOwners.length - 1;
+    console.log(arrayOfOwners.length);
+    for (let i = 0; i <= arrayLength; i++) {
+      arrayOfOwners[i].queueNumber = i + 1;
+    }
+    // _.map(arrayOfOwners, function (owner) { owner.queueNumber = queuePos++; });
+    console.log(arrayOfOwners);
+    return arrayOfOwners;
+  }
+
+  updateCollection = (list) => {
+    const arrayOfOwnersWithQueue = list;
+    const arrayLength = arrayOfOwnersWithQueue.length - 1;
+    for (let i = 0; i <= arrayLength; i++) {
+      Owners.collection.update(arrayOfOwnersWithQueue[i]._id, { $set: { queueNumber: arrayOfOwnersWithQueue[i].queueNumber } });
+    }
+  }
+
+  /*    _.map(ownerCollection, function (anOwner) {
       queueNumber += 1;
       Owners.collection.update(anOwner._id, { $set: queueNumber });
     });
@@ -23,14 +49,12 @@ class QueueCheckAdmin extends React.Component {
     }
     */
 
-    /*    for (let i = 0; i <= listOfReadyOwners.length; i++) {
-      console.log(listOfReadyOwners[i].email);
+  /*    for (let i = 0; i <= listOfReadyOwners.length; i++) {
+      listOfReadyOwners[i].queueNumber = i + 1;
       // Owners.collection.update(listOfReadyOwners[i]['_id']);
     } */
 
-    console.log(listOfReadyOwners);
-
-    /*    for (let i = 0; i <= listOfReadyOwners.length; i++) {
+  /*    for (let i = 0; i <= listOfReadyOwners.length; i++) {
       // eslint-disable-next-line no-param-reassign
       _.map(ownerCollection, function (anOwner) { anOwner.queueNumber = i++; });
     }
@@ -47,13 +71,18 @@ class QueueCheckAdmin extends React.Component {
     }
     _.map(ownerCollection, function (anOwner) { return anOwner.queueNumber.update(); }); */
 
+  render() {
+    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
-  render() {
-    this.updateQueue(this.props.owners);
+  renderPage() {
+    this.updateCollection(this.ownerArray(this.collectionToArray(this.props.owners)));
+    console.log(this.ownerArray(this.collectionToArray(this.props.owners)));
+
+    // console.log(this.updateCollection(this.ownerArray(this.collectionToArray(this.props.owners))));
     return (
       <Container>
-        <Button onClick={this.updateQueue(this.props.owners)}/>
+        <Button onClick={() => this.updateCollection(this.ownerArray(this.collectionToArray(this.props.owners)))}/>
       </Container>
     );
   }

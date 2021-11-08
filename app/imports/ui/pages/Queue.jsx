@@ -32,7 +32,7 @@ class Queue extends React.Component {
           <Grid.Column mobile={16} tablet={10} computer={10}>
             <Segment><Header as='h2' icon textAlign='center'>
               <Icon name='users' circular color="blue"/>
-              <Header.Content>You are number {this.props.owner.ownerConfirm} in line</Header.Content>
+              <Header.Content>You are number {this.props.owner.queueNumber} in line</Header.Content>
             </Header>
             </Segment>
           </Grid.Column>

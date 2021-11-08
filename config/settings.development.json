@@ -10,14 +10,14 @@
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
   "defaultOwners": [
-    {"firstName":  "Maegan", "lastName": "Chow", "email": "maegan@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "1234561"},
-    {"firstName":  "Nhan", "lastName": "Bui", "email": "nhan@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "1234562"},
-    {"firstName":  "Germaine", "lastName": "Juan", "email": "germaine@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "1234563"},
-    {"firstName":  "Kha", "lastName": "Bui", "email": "kha@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "1234564"}],
+    {"firstName":  "Maegan", "lastName": "Chow", "email": "maegan@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "1234561", "ownerConfirm": "Ready", "queueNumber": null},
+    {"firstName":  "Nhan", "lastName": "Bui", "email": "nhan@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "1234562", "ownerConfirm": "Not Ready", "queueNumber": null},
+    {"firstName":  "Germaine", "lastName": "Juan", "email": "germaine@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "1234563", "ownerConfirm": "Ready", "queueNumber": null},
+    {"firstName":  "Kha", "lastName": "Bui", "email": "kha@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "1234564", "ownerConfirm": "Not Ready", "queueNumber": null}],
   "defaultVolunteers": [
-    {"firstName":  "Maegan", "lastName": "Chow", "email": "maegan@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "55555555", "status": "Ready" },
-    {"firstName":  "Nhan", "lastName": "Bui", "email": "nhan@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "6666666", "status": "Not Ready" },
-    {"firstName":  "Germaine", "lastName": "Juan", "email": "germaine@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "7777777", "status": "Ready" },
-    {"firstName":  "Kha", "lastName": "Bui", "email": "kha@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "88888888","status": "Not Ready" }
+    {"firstName":  "Maegan", "lastName": "Chow", "email": "maegan@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "55555555", "ownerConfirm": "Ready", "queueNumber": null },
+    {"firstName":  "Nhan", "lastName": "Bui", "email": "nhan@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "6666666", "ownerConfirm": "Not Ready", "queueNumber": null },
+    {"firstName":  "Germaine", "lastName": "Juan", "email": "germaine@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "7777777", "status": "Ready", "queueNumber": null },
+    {"firstName":  "Kha", "lastName": "Bui", "email": "kha@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "88888888","ownerConfirm": "Not Ready", "queueNumber": null }
   ]
 }
