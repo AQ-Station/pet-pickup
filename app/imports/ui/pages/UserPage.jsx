@@ -31,18 +31,15 @@ class UserPage extends React.Component {
 
       </Grid>
     ) : (
-      <Container mobile={16} tablet={10} computer={10}>
-        <div className = 'notReady-background' >
-          <div className = 'notReady-background-container'>
-            <Grid centered columns={2}>
-              <Grid.Column textAlign='center'>
-                <Header inverted size='huge' >Your pet is not ready for pick up!</Header>
-                <Button> Refresh </Button>
-              </Grid.Column>
-            </Grid>
-          </div>
-        </div>
-      </Container>
+      <div className = 'overall-background'>
+        <Container>
+          <Grid centered className = 'notReady-background'>
+            <Grid.Column textAlign='center'>
+              <Header inverted size='huge' >Your pet is not ready for pick up!</Header>
+              <Button> Refresh </Button>
+            </Grid.Column>
+          </Grid>
+        </Container> </div>
     )
     );
   }

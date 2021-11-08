@@ -21,7 +21,7 @@ class NavBar extends React.Component {
     const { visible } = this.state;
     const menuStyle = { backgroundColor: '#03669e' };
     return (
-      <Grid style={menuStyle} column={1} width={1}>
+      <Grid className = 'navbar-style' style={menuStyle} column={1} width={1}>
         <Grid.Column>
           <Menu style={menuStyle} attached="top" inverted>
             <Button compact icon style={menuStyle}

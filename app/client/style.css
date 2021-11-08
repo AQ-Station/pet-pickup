@@ -73,8 +73,12 @@
 /*navbar-color{
 
 }*/
+.footer-style {
+  background-color: #03669e;
+  margin-top: 30px;
+}
 
-.full-background {
+.signup-style {
   background-color: #03669e;
 }
 
@@ -84,12 +88,23 @@
 .confirm-message {
   margin-top: 2rem;
 }
-.notReady-background{
-  background: url("images/pet-background2.png") no-repeat;
-  height: 300vmax;
-  background-size: 100%;
+.navbar-style{
+  margin-bottom: 30px!important;
 }
-.notReady-background-container{
-  position:relative;
-  top:40px;
+.notReady-background{
+  background: url("images/background-cropped.png") no-repeat;
+  background-size: 100%;
+  height: 500px;
+}
+@media (max-width: 480px) {
+  .notReady-background {
+    background: url("images/background-mobile1.png") no-repeat;
+    background-size: 100%;
+  }
+}
+.footer-link{
+  color: white;
+}
+.navbar-style{
+  height: 120px;
 }
