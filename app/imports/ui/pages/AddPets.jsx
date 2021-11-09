@@ -43,23 +43,25 @@ class AddPets extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid container centered>
-        <Grid.Column>
-          <Header as="h2" textAlign="center">Add Stuff</Header>
-          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
-            <Segment>
-              <TextField name='firstName'/>
-              <TextField name='lastName'/>
-              <TextField name='email'/>
-              <TextField name='phoneNumber'/>
-              <TextField name='microchipCode'/>
-              <SelectField name='status'/>
-              <SubmitField value='Submit'/>
-              <ErrorsField/>
-            </Segment>
-          </AutoForm>
-        </Grid.Column>
-      </Grid>
+      <div className = 'overall-background'>
+        <Grid container centered>
+          <Grid.Column>
+            <Header as="h2" textAlign="center">Add Stuff</Header>
+            <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
+              <Segment>
+                <TextField name='firstName'/>
+                <TextField name='lastName'/>
+                <TextField name='email'/>
+                <TextField name='phoneNumber'/>
+                <TextField name='microchipCode'/>
+                <SelectField name='status'/>
+                <SubmitField value='Submit'/>
+                <ErrorsField/>
+              </Segment>
+            </AutoForm>
+          </Grid.Column>
+        </Grid>
+      </div>
     );
   }
 }

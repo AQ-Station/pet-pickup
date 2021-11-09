@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import { Form, Grid, Container, Segment, Header, Button } from 'semantic-ui-react';
+import { Form, Grid, Container, Segment, Header, Button, Image } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
 import { Owners } from '../../api/owner/Owner';
 
@@ -50,13 +50,10 @@ class Signup extends React.Component {
     }
     const { cats } = this.state;
     return (
-      <div className="full-background">
-        <Container id="signup-page">
+      <div className = 'overall-background'>
+        <Container>
           <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
             <Grid.Column>
-              <Header as="h2" textAlign="center">
-                Check Pet Status
-              </Header>
               <Form onSubmit={this.submit}>
                 <Segment className="ui secondary blue inverted segment" stacked>
                   <Form.Input
