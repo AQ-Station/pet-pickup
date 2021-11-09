@@ -23,6 +23,7 @@ import PetEditForm from '../pages/PetEditForm';
 import PetRoster from '../pages/PetRoster';
 import Queue from '../pages/Queue';
 import ListPets from '../pages/ListPets';
+import ListWaitlist from '../pages/ListWaitlist';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -46,6 +47,7 @@ class App extends React.Component {
             <ProtectedRoute path="/petroster" component={PetRoster}/>
             <AdminProtectedRoute path="/addpet" component={AddPets}/>
             <AdminProtectedRoute path="/petlist" component={ListPets}/>
+            <AdminProtectedRoute path="/waitlist" component={ListWaitlist}/>
             <AdminProtectedRoute path="/pet/edit/:_id" component={PetEditForm}/>
             <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
             <Route component={NotFound}/>

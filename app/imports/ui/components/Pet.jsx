@@ -8,15 +8,8 @@ class Pet extends React.Component {
   render() {
     return (
       <Table.Row>
-        <Table.Cell>{this.props.pet.firstName}</Table.Cell>
-        <Table.Cell>{this.props.pet.lastName}</Table.Cell>
-        <Table.Cell>{this.props.pet.email}</Table.Cell>
-        <Table.Cell>{this.props.pet.phoneNumber}</Table.Cell>
-        <Table.Cell>{this.props.pet.status}</Table.Cell>
+        <Table.Cell>Microchip Code</Table.Cell>
         <Table.Cell>{this.props.pet.microchipCode}</Table.Cell>
-        <Table.Cell>
-          <Link to={`/volunteer/edit/${this.props.pet._id}`}>Edit</Link>
-        </Table.Cell>
       </Table.Row>
     );
   }

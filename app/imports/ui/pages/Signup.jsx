@@ -7,7 +7,6 @@ import { Owners } from '../../api/owner/Owner';
 
 class Signup extends React.Component {
 
-
   constructor(props) {
     super(props);
     this.state = { cats: [{ microchipcode: '' }], email: '', firstname: '', lastname: '', phonenumber: '', microchipcode: '', password: '', redirectToReferer: false };

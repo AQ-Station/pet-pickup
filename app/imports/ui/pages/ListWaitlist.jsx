@@ -3,11 +3,10 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Table, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Pets } from '../../api/pet/Pets';
-import Pet from '../components/Pet';
+import { Owners } from '../../api/owner/Owner'; import OwnerItem from '../components/OwnerItem';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class ListPets extends React.Component {
+class ListWaitlist extends React.Component {
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
@@ -18,10 +17,19 @@ class ListPets extends React.Component {
   renderPage() {
     return (
       <Container>
-        <Header as="h2" textAlign="center">Ready Pets</Header>
-        <Table>
+        <Header as="h2" textAlign="center">Waitlist</Header>
+        <Table celled>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Microchip Code</Table.HeaderCell>
+              <Table.HeaderCell>First Name</Table.HeaderCell>
+              <Table.HeaderCell>Waitlist Number</Table.HeaderCell>
+              <Table.HeaderCell>Remove</Table.HeaderCell>
+              <Table.HeaderCell>Delay</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
           <Table.Body>
-            {this.props.pets.map((pet) => <Pet key={pet._id} pet={pet} />)}
+            {this.props.owners.map((owner) => <OwnerItem key={owner._id} owner={owner} />)}
           </Table.Body>
         </Table>
       </Container>
@@ -30,21 +38,21 @@ class ListPets extends React.Component {
 }
 
 // Require an array of Stuff documents in the props.
-ListPets.propTypes = {
-  pets: PropTypes.array.isRequired,
+ListWaitlist.propTypes = {
+  owners: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe(Pets.userPublicationName);
+  const subscription = Meteor.subscribe(Owners.adminPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
   // Get the Stuff documents
-  const pets = Pets.collection.find({}).fetch();
+  const owners = Owners.collection.find({}).fetch();
   return {
-    pets,
+    owners,
     ready,
   };
-})(ListPets);
+})(ListWaitlist);
