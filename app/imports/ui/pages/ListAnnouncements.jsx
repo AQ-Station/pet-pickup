@@ -3,8 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Table, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Stuffs } from '../../api/stuff/Stuff';
-import Announcements from '../../api/announcements/Announcements';
+import { Announcements } from '../../api/announcements/Announcements';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListAnnouncements extends React.Component {
@@ -40,7 +39,7 @@ export default withTracker(() => {
   // Determine if the subscription is ready
   const ready = subscription.ready();
   // Get the Stuff documents
-  const announcements = Announcements.collection.find({}).fetch();
+  const announcements = Announcements.collection.findOne();
   return {
     announcements,
     ready,

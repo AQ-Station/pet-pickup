@@ -11,7 +11,6 @@ import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import AddStuff from '../pages/AddStuff';
 import AddPets from '../pages/AddPets';
-import EditAnnouncements from '../pages/EditAnnouncements';
 import ListAnnouncements from '../pages/ListAnnouncements';
 import UserPage from '../pages/UserPage';
 import EditStuff from '../pages/EditStuff';
@@ -46,7 +45,6 @@ class App extends React.Component {
             <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
             <ProtectedRoute path="/petform" component={PetForm}/>
             <ProtectedRoute path="/petroster" component={PetRoster}/>
-            <AdminProtectedRoute path="/editannouncements" component={EditAnnouncements}/>
             <Route path="/listannouncements" component={ListAnnouncements}/>
             <AdminProtectedRoute path="/pet/edit/:_id" component={PetEditForm}/>
             <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
