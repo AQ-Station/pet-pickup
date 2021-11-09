@@ -42,11 +42,11 @@
 }
 @media (max-width: 480px) {
   .notReady-background {
-    background: url("images/newpet-mobile.png") no-repeat;
+    background: url("images/newpet-mobile1.png") no-repeat;
     background-size: 100%;
   }
 }
 .landingpage-style{
   padding-bottom: 400px;
-  padding-top: 40px
+  padding-top: 20px
 }

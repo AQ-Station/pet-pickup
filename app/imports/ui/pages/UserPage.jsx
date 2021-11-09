@@ -38,7 +38,7 @@ class UserPage extends React.Component {
         <Container>
           <Grid centered className = 'notReady-background'>
             <Grid.Column textAlign='center'>
-              <Header size='huge' >Your pet is not ready for pick up!</Header>
+              <Header as ='h1' inverted >Your pet is not ready for pick up!</Header>
               <Button> Refresh </Button>
             </Grid.Column>
           </Grid>
