@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Loader } from 'semantic-ui-react';
+import { Button, Grid, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
@@ -9,6 +9,7 @@ import { Owners } from '../../api/owner/Owner';
 /** Useless page - queue functionality will be transferred to another page. */
 class QueueCheckAdmin extends React.Component {
 
+  // update and assign queue for owners who are ready
   updateQueue = (ownerCollection) => {
     const listOfReadyOwners = [];
 
@@ -34,6 +35,31 @@ class QueueCheckAdmin extends React.Component {
     return listOfReadyOwners;
   }
 
+  // remove first from queue who are finished and update collection
+  removeAndUpdate = (list) => {
+    const listOfReadyOwners = list;
+
+    Owners.collection.update(listOfReadyOwners[0]._id, { $set: { queueNumber: null } });
+    Owners.collection.update(listOfReadyOwners[0]._id, { $set: { ownerConfirm: 'Not Ready' } });
+
+    listOfReadyOwners.shift();
+
+    const length = listOfReadyOwners.length - 1;
+
+    // iterate through array of owners and assign queue numbers
+    for (let i = 0; i <= length; i++) {
+      listOfReadyOwners[i].queueNumber = i + 1;
+    }
+
+    // iterate through array of owners again and update collection
+    for (let j = 0; j <= length; j++) {
+      Owners.collection.update(listOfReadyOwners[j]._id, { $set: { queueNumber: listOfReadyOwners[j].queueNumber } });
+    }
+
+    return listOfReadyOwners;
+
+  }
+
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
@@ -41,9 +67,12 @@ class QueueCheckAdmin extends React.Component {
   renderPage() {
     this.updateQueue(this.props.owners);
     return (
-      <Container>
-        <Button onClick={() => this.updateQueue(this.props.owners)}/>
-      </Container>
+      <Grid container doubling centered verticalAlign='middle' textAlign='center' columns={1}>
+        <Grid.Column textAlign='center'>
+          <Button onClick={() => this.updateQueue(this.props.owners)}>Update Queue</Button>
+          <Button onClick={() => this.removeAndUpdate(this.updateQueue(this.props.owners))}>Remove and Update</Button>
+        </Grid.Column>
+      </Grid>
     );
   }
 }
