@@ -19,5 +19,8 @@
     {"firstName":  "Nhan", "lastName": "Bui", "email": "nhan@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "6666666", "status": "Not Ready" },
     {"firstName":  "Germaine", "lastName": "Juan", "email": "germaine@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "7777777", "status": "Ready" },
     {"firstName":  "Kha", "lastName": "Bui", "email": "kha@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "88888888","status": "Not Ready" }
+  ],
+  "defaultAnnouncements": [
+    { "announcement": " By clicking confirm, you indicate that you are in vicinity of our offices. You will then be put into a queue for when you will be able to sign out your pet. Otherwise, click cancel until you are near our offices."}
   ]
 }

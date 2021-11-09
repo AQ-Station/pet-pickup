@@ -3,6 +3,7 @@ import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 import { Pets } from '../../api/pet/Pets';
 import { Owners } from '../../api/owner/Owner';
+import { Announcements } from '../../api/announcements/Announcements';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
@@ -57,6 +58,20 @@ Meteor.publish(Owners.adminPublicationName, function () {
 Meteor.publish(null, function () {
   if (this.userId) {
     return Meteor.roleAssignment.find({ 'user._id': this.userId });
+  }
+  return this.ready();
+});
+
+Meteor.publish(Announcements.userPublicationName, function () {
+  if (this.userId) {
+    return Announcements.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(Announcements.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Announcements.collection.find();
   }
   return this.ready();
 });
