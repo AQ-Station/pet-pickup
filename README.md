@@ -35,9 +35,9 @@ If all goes well, the template application will appear at http://localhost:3000.
 ### Features
 
 <ul>
-<li>Animal Quarantine officers are able to add, edit, and remove people (and their pet's codes) from the queue.<li>
-<li>Pet owners are able to easily find their location in the queue and when they need to pick up their pet.<li>
-<ul>
+<li>Animal Quarantine officers are able to add, edit, and remove people (and their pet's codes) from the queue.</li>
+<li>Pet owners are able to easily find their location in the queue and when they need to pick up their pet.</li>
+</ul>
   
 ### Pages
 #### Landing page
