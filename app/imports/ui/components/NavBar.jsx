@@ -53,7 +53,8 @@ class NavBar extends React.Component {
               <Menu.Item key='username' color='grey'><Icon name="user circle"/>{this.props.currentUser}<Icon name="angle double down"/></Menu.Item>
             ) : ''}
             {!Roles.userIsInRole(Meteor.userId(), 'admin') && this.props.currentUser !== '' ? (
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/user" key='user' id="userprofile"><Icon name="user"/>User Page</Menu.Item>
+              [<Menu.Item as={NavLink} activeClassName="active" exact to="/user" key='user' id="userprofile"><Icon name="user"/>User Page</Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/queue" key='quee' id="queuepage"><Icon name="user"/>Queue</Menu.Item>]
             ) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <Menu.Item as={NavLink} activeClassName="active" exact to="/addpet" key='addpet'><Icon name="add circle"/>Add Pets</Menu.Item>

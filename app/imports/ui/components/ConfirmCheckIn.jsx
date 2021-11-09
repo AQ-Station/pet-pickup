@@ -15,12 +15,13 @@ class ConfirmCheckIn extends React.Component {
   }
 
   alert() {
-    setTimeout(() => { swal('Check-In Confirmed!', 'Adding you the queue...', 'success'); }, 10);
-
+    setTimeout(() => { swal('Check-In Confirmed!', 'test test...', 'success'); }, 10);
+    this.context.history.push('/queue');
   }
 
   render() {
     return (
+
       <Modal
         onClose={() => this.setState({ open: false })}
         onOpen={() => this.setState({ open: true })}
@@ -45,9 +46,11 @@ class ConfirmCheckIn extends React.Component {
             <Grid.Row textAlign="center">
               <Button negative size="huge" content="Wait"
                 onClick={() => this.setState({ open: false })}/>
-              <Button positive size="huge" content="Confirm Check-In"
-                onClick={() => this.setState({ setOpen: false })}
-                as={NavLink} activeClassName="active" exact to="/queue"/>
+              <Button as={NavLink} activeClassName="active" exact to="/Queue" positive size="huge" content="Confirm Check-In"
+                onClick={() => {
+                  this.alert();
+                }}
+              />
             </Grid.Row>
           </Grid>
         </Modal.Actions>
