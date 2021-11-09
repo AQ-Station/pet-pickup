@@ -26,9 +26,9 @@ if (Stuffs.collection.find().count() === 0) {
 }
 
 if (Pets.collection.find().count() === 0) {
-  if (Meteor.settings.defaultVolunteers) {
+  if (Meteor.settings.defaultPets) {
     console.log('Creating default data.');
-    Meteor.settings.defaultVolunteers.map(data => addPet(data));
+    Meteor.settings.defaultPets.map(data => addPet(data));
   }
 }
 
