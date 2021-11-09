@@ -51,12 +51,17 @@ class NavBar extends React.Component {
               <Menu.Item as={NavLink} activeClassName="active" exact to="/queuecheck" key='qc'>Queue Check</Menu.Item>
             ) : ''}
             {this.props.currentUser ? (
-              [<Menu.Item key='username' color='grey'><Icon name="user circle"/>{this.props.currentUser}<Icon name="angle double down"/></Menu.Item>,
-                <Menu.Item as={NavLink} activeClassName="active" exact to="/addpet" key='addpet'><Icon name="add circle"/>Add Pets</Menu.Item>,
-                <Menu.Item as={NavLink} activeClassName="active" exact to="/user" key='user'><Icon name="tag"/>User Page</Menu.Item>]
+              <Menu.Item key='username' color='grey'><Icon name="user circle"/>{this.props.currentUser}<Icon name="angle double down"/></Menu.Item>
+            ) : ''}
+            {!Roles.userIsInRole(Meteor.userId(), 'admin') && this.props.currentUser !== '' ? (
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/user" key='user' id="userprofile"><Icon name="user"/>User Page</Menu.Item>
             ) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/addpet" key='addpet'><Icon name="add circle"/>Add Pets</Menu.Item>
+            ) : ''}
+            {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/petlist" key='petlist'><Icon name="list"/>Pet List</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/waitlist" key='waitlist'><Icon name="list"/>Wait List</Menu.Item>
             ) : ''}
             {this.props.currentUser === '' ? (
               [<Menu.Item as={NavLink} activeClassName="active" exact to="/signin" key='signin'> <Icon name="user"/> Sign In </Menu.Item>,
