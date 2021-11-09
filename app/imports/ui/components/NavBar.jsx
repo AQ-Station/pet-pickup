@@ -19,18 +19,17 @@ class NavBar extends React.Component {
 
   render() {
     const { visible } = this.state;
-    const menuStyle = { backgroundColor: '#03669e' };
+    const menuStyle = { backgroundColor: '#fffaee' };
     return (
       <Grid className = 'navbar-style' style={menuStyle} column={1} width={1}>
         <Grid.Column>
           <Menu style={menuStyle} attached="top" inverted>
             <Button compact icon style={menuStyle}
               onClick={this.handleShowOnClick}>
-              <Icon name='bars' size="large" centered inverted/>
+              <Icon name='bars' size="large" />
             </Button>
             <Menu.Item as={NavLink} activeClassName="" exact to="/">
-              <Header inverted as='h1'>
-                <Image src='/images/aq-logo-nav.png' size="large"/>
+              <Header as='h1'>
                 <Header.Content>AQ-Station</Header.Content>
               </Header>
             </Menu.Item>
@@ -41,7 +40,6 @@ class NavBar extends React.Component {
             as={Menu}
             animation='overlay'
             icon='labeled'
-            inverted
             dimmed={visible}
             onHide={this.handleSidebarHide}
             vertical

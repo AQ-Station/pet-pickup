@@ -50,7 +50,7 @@ class Signup extends React.Component {
     }
     const { cats } = this.state;
     return (
-      <div className="signup-style">
+      <div className = 'overall-background'>
         <Container>
           <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
             <Grid.Column>

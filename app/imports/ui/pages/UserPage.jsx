@@ -20,22 +20,25 @@ class UserPage extends React.Component {
   renderPage() {
 
     return ((this.props.owner.microchipCode.every(this.doesCodeExist)) ? (
-      <Grid container centered verticalAlign='middle' textAlign='center' columns={1} row={3} className='blue-background-body'>
-        <Grid.Column textAlign='center'>
-          <Icon inverted color='green' name='check circle' size='massive'/>
-          <Header as='h1' inverted className='center-text'>Your pet is ready!</Header>
-          <div className='confirm-message'>
-            <ConfirmCheckIn/>
-          </div>
-        </Grid.Column>
-
-      </Grid>
+      <div className = 'overall-background'>
+        <Container>
+          <Grid centered className = 'notReady-background'>
+            <Grid.Column className = 'ready-style' textAlign='center'>
+              <Icon inverted name='check circle' size='massive'/>
+              <Header as='h1' inverted className='center-text'>Your pet is ready!</Header>
+              <div className='confirm-message'>
+                <ConfirmCheckIn/>
+              </div>
+            </Grid.Column>
+          </Grid>
+        </Container>
+      </div>
     ) : (
       <div className = 'overall-background'>
         <Container>
           <Grid centered className = 'notReady-background'>
             <Grid.Column textAlign='center'>
-              <Header inverted size='huge' >Your pet is not ready for pick up!</Header>
+              <Header size='huge' >Your pet is not ready for pick up!</Header>
               <Button> Refresh </Button>
             </Grid.Column>
           </Grid>

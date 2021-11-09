@@ -44,7 +44,7 @@ class ConfirmCheckIn extends React.Component {
             <Grid.Row textAlign="center">
               <Button negative size="huge" content="Wait"
                 onClick={() => this.setState({ open: false })}/>
-              <Button positive size="huge" content="Confirm Check-In"
+              <Button positive size="huge"  content="Confirm Check-In"
                 onClick={() => this.alert()}/>
             </Grid.Row>
           </Grid>
