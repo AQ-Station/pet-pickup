@@ -17,6 +17,7 @@ class UserPage extends React.Component {
   }
 
   refreshPage() {
+    // eslint-disable-next-line no-undef
     window.location.reload(false);
   }
 
@@ -97,20 +98,20 @@ class UserPage extends React.Component {
   }
 }
 
-// Require an array of Recipes documents in the props.
+// Require an array of owner documents in the props.
 UserPage.propTypes = {
-  owner: PropTypes.object.isRequired,
+  owner: PropTypes.object,
   ready: PropTypes.bool.isRequired,
 };
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(() => {
-  // Get access to Recipes documents.
+  // Get access to owner and pets documents.
   const subscription = Meteor.subscribe(Owners.userPublicationName);
   const subscription2 = Meteor.subscribe(Pets.userPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready() && subscription2.ready();
-  // Get the Recipe that matches with the recipeID
+  // Get the owner that matches with the recipeID
   const owner = Owners.collection.findOne();
   return {
     ready,

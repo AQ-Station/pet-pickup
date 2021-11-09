@@ -27,7 +27,6 @@ import QueueCheckAdmin from '../pages/QueueCheckAdmin';
 import ListPets from '../pages/ListPets';
 import ListWaitlist from '../pages/ListWaitlist';
 
-
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
   render() {

@@ -1,9 +1,8 @@
 import React from 'react';
 import { Button, Grid, Header, Image, Modal } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 import swal from 'sweetalert';
-import { NavLink } from 'react-router-dom';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 class ConfirmCheckIn extends React.Component {

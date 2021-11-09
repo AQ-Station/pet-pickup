@@ -2,7 +2,6 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Table, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
-import { _ } from 'meteor/underscore';
 import PropTypes from 'prop-types';
 import { Pets } from '../../api/pet/Pets';
 import { Owners } from '../../api/owner/Owner';

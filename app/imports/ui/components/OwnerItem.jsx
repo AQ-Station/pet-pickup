@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table, Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List person table. See pages/Listperson.jsx. */
 class OwnerItem extends React.Component {
