@@ -18,11 +18,15 @@ Second, go to the AQ-Station repository, and click the "Clone or download" butto
 
 Third, cd into the app/ directory of your local copy of the repo, and install third party libraries with:
 
-meteor npm install
+```
+$ meteor npm install
+```
 
 Lastly, run the system with:
 
-meteor npm run start
+```
+$ meteor npm run start
+```
 
 If all goes well, the template application will appear at http://localhost:3000.
 
