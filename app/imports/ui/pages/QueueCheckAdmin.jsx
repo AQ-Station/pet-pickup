@@ -8,81 +8,41 @@ import { Owners } from '../../api/owner/Owner';
 
 /** Useless page - queue functionality will be transferred to another page. */
 class QueueCheckAdmin extends React.Component {
-  collectionToArray = (ownerCollection) => {
+
+  updateQueue = (ownerCollection) => {
     const listOfReadyOwners = [];
 
+    // map collection to an array
     _.map(ownerCollection, function (anOwner) {
       if (anOwner.ownerConfirm === 'Ready') {
         listOfReadyOwners.push(anOwner);
       }
     });
+
+    const length = listOfReadyOwners.length - 1; // set array length number for iteration
+
+    // iterate through array of owners and assign queue numbers
+    for (let i = 0; i <= length; i++) {
+      listOfReadyOwners[i].queueNumber = i + 1;
+    }
+
+    // iterate through array of owners again and update collection
+    for (let j = 0; j <= length; j++) {
+      Owners.collection.update(listOfReadyOwners[j]._id, { $set: { queueNumber: listOfReadyOwners[j].queueNumber } });
+    }
+
     return listOfReadyOwners;
   }
-
-  ownerArray = (list) => {
-    const arrayOfOwners = list;
-    const arrayLength = arrayOfOwners.length - 1;
-    console.log(arrayOfOwners.length);
-    for (let i = 0; i <= arrayLength; i++) {
-      arrayOfOwners[i].queueNumber = i + 1;
-    }
-    // _.map(arrayOfOwners, function (owner) { owner.queueNumber = queuePos++; });
-    console.log(arrayOfOwners);
-    return arrayOfOwners;
-  }
-
-  updateCollection = (list) => {
-    const arrayOfOwnersWithQueue = list;
-    const arrayLength = arrayOfOwnersWithQueue.length - 1;
-    for (let i = 0; i <= arrayLength; i++) {
-      Owners.collection.update(arrayOfOwnersWithQueue[i]._id, { $set: { queueNumber: arrayOfOwnersWithQueue[i].queueNumber } });
-    }
-  }
-
-  /*    _.map(ownerCollection, function (anOwner) {
-      queueNumber += 1;
-      Owners.collection.update(anOwner._id, { $set: queueNumber });
-    });
-
-    for (let queueNumber = 0; queueNumber <= listOfReadyOwners.length; queueNumber++) {
-      Owners.collection.update(this.props.owners.listOfReadyOwners[queueNumber]._id, { $set: queueNumber });
-    }
-    */
-
-  /*    for (let i = 0; i <= listOfReadyOwners.length; i++) {
-      listOfReadyOwners[i].queueNumber = i + 1;
-      // Owners.collection.update(listOfReadyOwners[i]['_id']);
-    } */
-
-  /*    for (let i = 0; i <= listOfReadyOwners.length; i++) {
-      // eslint-disable-next-line no-param-reassign
-      _.map(ownerCollection, function (anOwner) { anOwner.queueNumber = i++; });
-    }
-    queue = _.map(ownerCollection, function (anOwner) { return anOwner.queueNumber; });
-    queue.sort(function (a, b) {
-      return a - b;
-    });
-    for (let i )
-    for (let i = 1; i <= queue.length; i++) {
-      if (!queue[i - 1]) {
-        queue[i]--;
-        queue[i - 1] = queue[i];
-      }
-    }
-    _.map(ownerCollection, function (anOwner) { return anOwner.queueNumber.update(); }); */
 
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
   renderPage() {
-    this.updateCollection(this.ownerArray(this.collectionToArray(this.props.owners)));
-    console.log(this.ownerArray(this.collectionToArray(this.props.owners)));
-
-    // console.log(this.updateCollection(this.ownerArray(this.collectionToArray(this.props.owners))));
+    this.updateQueue(this.props.owners);
     return (
       <Container>
-        <Button onClick={() => this.updateCollection(this.ownerArray(this.collectionToArray(this.props.owners)))}/>
+        <Button onClick={() => this.updateQueue(this.props.owners)}/>
       </Container>
     );
   }
