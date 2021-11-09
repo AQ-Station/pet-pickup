@@ -1,8 +1,3 @@
-.blue-background-body2 {
-  /* margin-top: 2rem !important; adjust when navbar is edited */
-  background-color: #03669e;
-}
-
 .center-confirmation {
   margin-left: auto !important;
   margin-right: auto !important;
@@ -12,15 +7,15 @@
 
 }*/
 .footer-style {
-  background-color: #fffaee;
+  background-color: #03669e;
   background-size: cover;
   height: 500px;
 }
 .footer-link{
-  color: black;
+  color: white;
 }
 .overall-background{
-  background-color: #fffaee;
+  background-color: #03669e;
 }
 .navbar-style{
   height: 120px;
@@ -42,11 +37,7 @@
 }
 @media (max-width: 480px) {
   .notReady-background {
-    background: url("images/newpet-mobile1.png") no-repeat;
+    background: url("images/newpet-mobile.png") no-repeat;
     background-size: 100%;
   }
-}
-.landingpage-style{
-  padding-bottom: 400px;
-  padding-top: 20px
 }

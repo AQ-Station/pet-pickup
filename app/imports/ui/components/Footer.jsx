@@ -14,7 +14,7 @@ class Footer extends React.Component {
               </Grid.Column>
               <Grid.Column>
                 <div className = 'footer-link'>
-                  <Header as = 'h2'>Contact us </Header>
+                  <Header inverted as = 'h2'>Contact us </Header>
                   <hr/>
                   <a className = 'footer-link' href="https://hdoa.hawaii.gov/ai/aqs/aqs-info/"> Website : Animal Industry Division </a> <br/>
                     phone : (808) 973-9560  <br/>
