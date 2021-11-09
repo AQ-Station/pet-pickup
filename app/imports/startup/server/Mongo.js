@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Pets } from '../../api/pet/Pets';
 import { Owners } from '../../api/owner/Owner';
+import { Announcements } from '../../api/announcements/Announcements';
 
 /* eslint-disable no-console */
 
@@ -41,5 +42,16 @@ if (Owners.collection.find().count() === 0) {
   if (Meteor.settings.defaultOwners) {
     console.log('Creating default profiles.');
     Meteor.settings.defaultOwners.map(user => addOwner(user));
+  }
+}
+
+function addAnnouncements(data) {
+  Announcements.collection.insert(data);
+}
+
+if (Announcements.collection.find().count() === 0) {
+  if (Meteor.settings.defaultAnnouncements) {
+    console.log('Creating default profiles.');
+    Meteor.settings.defaultAnnouncements.map(user => addAnnouncements(user));
   }
 }
