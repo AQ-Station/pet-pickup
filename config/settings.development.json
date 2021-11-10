@@ -12,13 +12,13 @@
   "defaultOwners": [
     {"firstName":  "Maegan", "lastName": "Chow", "email": "maegan@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "1234561", "ownerConfirm": "Ready", "queueNumber": null, "waitTime": null},
     {"firstName":  "Nhan", "lastName": "Bui", "email": "nhan@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "1234562", "ownerConfirm": "Not Ready", "queueNumber": null, "waitTime": null},
-    {"firstName":  "Germaine", "lastName": "Juan", "email": "germaine@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "1234563", "ownerConfirm": "Ready", "queueNumber": null, "waitTime": null},
+    {"firstName":  "Germaine", "lastName": "Germaine", "email": "germaine@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "1234563", "ownerConfirm": "Ready", "queueNumber": null, "waitTime": null},
     {"firstName":  "Kha", "lastName": "Bui", "email": "kha@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "1234564", "ownerConfirm": "Not Ready", "queueNumber": null, "waitTime": null}],
 
   "defaultPets": [
     {"firstName":  "Maegan", "lastName": "Chow", "email": "maegan@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "55555555"},
     {"firstName":  "Nhan", "lastName": "Bui", "email": "nhan@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "6666666"},
-    {"firstName":  "Germaine", "lastName": "Juan", "email": "germaine@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "7777777"},
+    {"firstName":  "Germaine", "lastName": "Germaine", "email": "germaine@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "7777777"},
     {"firstName":  "Kha", "lastName": "Bui", "email": "kha@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "88888888"}
   ],
   "defaultAnnouncements": [

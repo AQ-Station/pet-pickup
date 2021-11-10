@@ -62,7 +62,7 @@ class UserPage extends React.Component {
                   <Modal.Content image>
                     <Grid container doubling centered verticalAlign='middle' columns={2}>
                       <Grid.Column textAlign='center'>
-                        <Image size='medium' src="/images/aaq-office.png" bordered/> {/* Possible Placeholder */}
+                        <Image size='medium' src="/images/aaq-office.png" bordered/> {/* https://www.youtube.com/watch?v=29Okz7MpihQ */}
                       </Grid.Column>
                       <Grid.Column>
                         <Header as="h3">

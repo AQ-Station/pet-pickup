@@ -57,9 +57,10 @@ class Signup extends React.Component {
               <Form onSubmit={this.submit}>
                 <Segment className="ui secondary blue inverted segment" stacked>
                   <Form.Input
+                    required
                     label="Email"
                     id="signup-form-email"
-                    icon="user"
+                    icon="mail"
                     iconPosition="left"
                     name="email"
                     type="email"
@@ -96,7 +97,7 @@ class Signup extends React.Component {
                     required
                     label="Phone Number"
                     id="signup-form-phonenumber"
-                    icon="user"
+                    icon="rotated clockwise phone"
                     iconPosition="left"
                     name="phonenumber"
                     placeholder="Phone Number"
@@ -104,6 +105,7 @@ class Signup extends React.Component {
                     onChange={this.handleChange}
                   />
                   {
+                    // https://itnext.io/building-a-dynamic-controlled-form-in-react-together-794a44ee552c
                     cats.map((val, idx) => {
                       const catId = `cat-${idx}`;
                       return (
