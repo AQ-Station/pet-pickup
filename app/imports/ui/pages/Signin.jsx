@@ -45,7 +45,7 @@ export default class Signin extends React.Component {
       <div className="overall-background">
         <Container id="signin-page">
           <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
-            <Grid.Column>
+            <Grid.Column mobile={16} tablet={10} computer={10}>
               <Header as="h2" textAlign="center">
                 Login to your account
               </Header>

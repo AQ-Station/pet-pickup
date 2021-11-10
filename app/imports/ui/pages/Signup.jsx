@@ -53,7 +53,7 @@ class Signup extends React.Component {
       <div className = 'overall-background'>
         <Container>
           <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
-            <Grid.Column>
+            <Grid.Column mobile={16} tablet={10} computer={10}>
               <Form onSubmit={this.submit}>
                 <Segment className="ui secondary blue inverted segment" stacked>
                   <Form.Input
