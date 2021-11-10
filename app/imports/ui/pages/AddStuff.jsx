@@ -44,9 +44,9 @@ class AddStuff extends React.Component {
     return (
       <Grid container centered>
         <Grid.Column>
-          <Header as="h2" textAlign="center">Add Stuff</Header>
+          <Header as="h2" textAlign="center" className="inverted">Add Pets</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
-            <Segment>
+            <Segment className="ui secondary blue inverted segment">
               <TextField name='name'/>
               <NumField name='quantity' decimal={false}/>
               <SelectField name='condition'/>

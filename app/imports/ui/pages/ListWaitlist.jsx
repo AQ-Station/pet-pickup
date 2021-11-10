@@ -16,23 +16,25 @@ class ListWaitlist extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-      <Container>
-        <Header as="h2" textAlign="center">Waitlist</Header>
-        <Table celled>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>Microchip Code</Table.HeaderCell>
-              <Table.HeaderCell>First Name</Table.HeaderCell>
-              <Table.HeaderCell>Waitlist Number</Table.HeaderCell>
-              <Table.HeaderCell>Remove</Table.HeaderCell>
-              <Table.HeaderCell>Delay</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-          <Table.Body>
-            {this.props.owners.map((owner) => <OwnerItem key={owner._id} owner={owner} />)}
-          </Table.Body>
-        </Table>
-      </Container>
+      <div className="overall-background">
+        <Container>
+          <Header as="h2" textAlign="center" className="inverted">Waitlist</Header>
+          <Table celled>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>Microchip Code</Table.HeaderCell>
+                <Table.HeaderCell>First Name</Table.HeaderCell>
+                <Table.HeaderCell>Waitlist Number</Table.HeaderCell>
+                <Table.HeaderCell>Remove</Table.HeaderCell>
+                <Table.HeaderCell>Delay</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {this.props.owners.map((owner) => <OwnerItem key={owner._id} owner={owner} />)}
+            </Table.Body>
+          </Table>
+        </Container>
+      </div>
     );
   }
 }

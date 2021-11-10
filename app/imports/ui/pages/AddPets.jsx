@@ -46,9 +46,9 @@ class AddPets extends React.Component {
       <div className = 'overall-background'>
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Add Stuff</Header>
+            <Header as="h2" textAlign="center" className="inverted">Add Pets</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
-              <Segment>
+              <Segment className="ui secondary blue inverted segment">
                 <TextField name='firstName'/>
                 <TextField name='lastName'/>
                 <TextField name='email'/>
