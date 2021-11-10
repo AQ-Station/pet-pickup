@@ -39,16 +39,5 @@ If all goes well, the template application will appear at http://localhost:3000.
 <li>Pet owners are able to easily find their location in the queue and when they need to pick up their pet.</li>
 </ul>
   
-### Pages
-#### Landing page
-#### Administrators' side:
-#### Login page
-#### Add Pet page
-#### View queue
-#### Pet owners' side:
-#### Signin page for Pet owners
-#### Pet status pages
-#### Queue page
-
 ## Contact Us
 This application was created by Chad Oshiro, Josh Paino, Kha Bui, Kiran Datwani, Maegan Chow, and Nhan Bui for HACC 2021 competition.
