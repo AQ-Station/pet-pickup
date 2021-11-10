@@ -27,11 +27,15 @@ class ListWaitlist extends React.Component {
     // iterate through array of owners and assign queue numbers
     for (let i = 0; i <= length; i++) {
       listOfReadyOwners[i].queueNumber = i + 1;
+      listOfReadyOwners[i].waitTime = i * 5;
+
     }
 
     // iterate through array of owners again and update collection
     for (let j = 0; j <= length; j++) {
       Owners.collection.update(listOfReadyOwners[j]._id, { $set: { queueNumber: listOfReadyOwners[j].queueNumber } });
+      Owners.collection.update(listOfReadyOwners[j]._id, { $set: { waitTime: listOfReadyOwners[j].waitTime } });
+
     }
 
     return listOfReadyOwners;
@@ -43,7 +47,7 @@ class ListWaitlist extends React.Component {
 
     Owners.collection.update(listOfReadyOwners[0]._id, { $set: { queueNumber: null } });
     Owners.collection.update(listOfReadyOwners[0]._id, { $set: { ownerConfirm: 'Not Ready' } });
-
+    Owners.collection.update(listOfReadyOwners[0]._id, { $set: { waitTime: null } });
     listOfReadyOwners.shift();
 
     const length = listOfReadyOwners.length - 1;
@@ -51,11 +55,15 @@ class ListWaitlist extends React.Component {
     // iterate through array of owners and assign queue numbers
     for (let i = 0; i <= length; i++) {
       listOfReadyOwners[i].queueNumber = i + 1;
+      listOfReadyOwners[i].waitTime = i * 5;
+
     }
 
     // iterate through array of owners again and update collection
     for (let j = 0; j <= length; j++) {
       Owners.collection.update(listOfReadyOwners[j]._id, { $set: { queueNumber: listOfReadyOwners[j].queueNumber } });
+      Owners.collection.update(listOfReadyOwners[j]._id, { $set: { waitTime: listOfReadyOwners[j].waitTime } });
+
     }
 
     swal('Checked-out owner in Waitlist #1!', 'Updating Waitlist...', 'success');

@@ -63,7 +63,7 @@ class Queue extends React.Component {
               Approximate Wait Time
               </Header>
               <Segment attached>
-              360 minutes
+                {this.props.owner.waitTime} minutes
               </Segment>
               <Message warning attached='bottom'>
                 <Icon name='warning' />
