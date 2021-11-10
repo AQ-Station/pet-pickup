@@ -99,7 +99,7 @@ class Signup extends React.Component {
                     icon="user"
                     iconPosition="left"
                     name="phonenumber"
-                    placeholder="Last Name"
+                    placeholder="Phone Number"
                     type="phonenumber"
                     onChange={this.handleChange}
                   />
