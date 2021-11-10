@@ -38,4 +38,4 @@ $ meteor npm run start
 If all goes well, the template application will appear at http://localhost:3000.
   
 ## Contact Us
-This application was created by Chad Oshiro, Josh Paino, Kha Bui, Kiran Datwani, Maegan Chow, and Nhan Bui for HACC 2021 competition.
+This application was created by Chad Oshiro, Joshua Paino, Kha Bui, Kiran Datwani, Maegan Chow, and Nhan Bui for HACC 2021 competition.
