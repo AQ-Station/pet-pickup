@@ -4,6 +4,13 @@ This project is focused on creating an application for Airport Animal Quarantine
 
 The Airport Animal Quarantine Offices and the pet-owners have issues communicating with each other, and due to this, there are long delays in checking out pets on the Animal Quarantine side and unnecessarily long wait times for the pet-owners. Our idea is to create an application where there could be little to no issues in communication with the AQ Offices and the pet owners with a queue functionality.
 
+## Features
+
+<ul>
+<li>Animal Quarantine officers are able to add, edit, and remove people (and their pet's codes) from the queue.</li>
+<li>Pet owners are able to easily find their location in the queue and when they need to pick up their pet.</li>
+</ul>
+
 #### See the application live on your mobile or computer devices:
 
 #### See a live demo of the application:
@@ -29,26 +36,6 @@ $ meteor npm run start
 ```
 
 If all goes well, the template application will appear at http://localhost:3000.
-
-## User Guide
-
-### Features
-
-<ul>
-<li>Animal Quarantine officers are able to add, edit, and remove people (and their pet's codes) from the queue.</li>
-<li>Pet owners are able to easily find their location in the queue and when they need to pick up their pet.</li>
-</ul>
   
-### Pages
-#### Landing page
-#### Administrators' side:
-#### Login page
-#### Add Pet page
-#### View queue
-#### Pet owners' side:
-#### Signin page for Pet owners
-#### Pet status pages
-#### Queue page
-
 ## Contact Us
 This application was created by Chad Oshiro, Josh Paino, Kha Bui, Kiran Datwani, Maegan Chow, and Nhan Bui for HACC 2021 competition.
