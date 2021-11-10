@@ -17,6 +17,11 @@
 .overall-background{
   background-color: #03669e;
 }
+.overall-background2{
+  background-color: #03669e;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
 .navbar-style{
   height: 80px;
 }
