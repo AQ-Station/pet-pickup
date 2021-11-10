@@ -1,19 +1,27 @@
 import React from 'react';
-import { Grid, Feed, Icon, Header, Segment, Message, Loader, Button, Container } from 'semantic-ui-react';
+import { Grid, Feed, Icon, Header, Segment, Message, Loader, Container } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
+import swal from 'sweetalert';
 import { Owners } from '../../api/owner/Owner';
 import { Pets } from '../../api/pet/Pets';
 
 /** A page to show owner's position in the queue */
 class Queue extends React.Component {
+  readyNotification = () => {
+    if (this.props.owner.queueNumber === 1) {
+      swal('We are now ready to assist you!', 'Please come in to our office.', 'success');
+    }
+  }
+
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active> Determining your queue number</Loader>;
   }
 
   renderPage() {
+    this.readyNotification();
     return (((!this.props.owner.ownerConfirm) ? (
       <div className = 'overall-background'>
         <Container>
