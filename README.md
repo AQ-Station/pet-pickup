@@ -30,9 +30,7 @@ $ meteor npm run start
 
 If all goes well, the template application will appear at http://localhost:3000.
 
-## User Guide
-
-### Features
+## Features
 
 <ul>
 <li>Animal Quarantine officers are able to add, edit, and remove people (and their pet's codes) from the queue.</li>
