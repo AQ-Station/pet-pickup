@@ -13,11 +13,6 @@ const formSchema = new SimpleSchema({
   email: String,
   phoneNumber: String,
   microchipCode: String,
-  status: {
-    type: String,
-    allowedValues: ['Ready', 'Not Ready'],
-    defaultValue: 'Not Ready',
-  },
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -54,7 +49,6 @@ class AddPets extends React.Component {
                 <TextField name='email'/>
                 <TextField name='phoneNumber'/>
                 <TextField name='microchipCode'/>
-                <SelectField name='status'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
               </Segment>
