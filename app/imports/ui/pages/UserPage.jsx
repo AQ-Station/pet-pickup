@@ -8,7 +8,7 @@ import swal from 'sweetalert';
 import { Owners } from '../../api/owner/Owner';
 import { Pets } from '../../api/pet/Pets';
 
-const padding = { paddingTop: '25px', paddingBottom: '50px', paddingLeft: '100px', paddingRight: '100px' };
+// const padding = { paddingTop: '25px', paddingBottom: '50px', paddingLeft: '100px', paddingRight: '100px' };
 
 class UserPage extends React.Component {
 
