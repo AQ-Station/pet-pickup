@@ -2,10 +2,13 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Header, Loader, Grid, Icon, Container, Button, Modal, Image } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
+import { NavLink, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import swal from 'sweetalert';
 import { Owners } from '../../api/owner/Owner';
 import { Pets } from '../../api/pet/Pets';
+
+const padding = { paddingTop: '25px', paddingBottom: '50px', paddingLeft: '100px', paddingRight: '100px' };
 
 class UserPage extends React.Component {
 
@@ -28,7 +31,7 @@ class UserPage extends React.Component {
     Owners.collection.update(this.props.owner._id, { $set: { ownerConfirm } });
     Owners.collection.update(this.props.owner._id, { $set: { queueNumber: null } });
 
-    swal('Check-In Confirmed!', 'Adding you the queue...', 'success');
+    swal('Check-In Confirmed!', 'Adding you to the queue...', 'success');
 
   }
 
@@ -40,7 +43,8 @@ class UserPage extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
 
-    return ((this.props.owner.microchipCode.every(this.doesCodeExist)) ? (
+    // eslint-disable-next-line no-nested-ternary
+    return ((!this.props.owner.ownerConfirm) ? ((this.props.owner.microchipCode.every(this.doesCodeExist)) ? (
       <div className = 'overall-background'>
         <Container>
           <Grid centered className = 'notReady-background'>
@@ -72,8 +76,9 @@ class UserPage extends React.Component {
                       <Grid.Row textAlign="center">
                         <Button negative size="huge" content="Wait"
                           onClick={() => this.setState({ open: false })}/>
-                        <Button positive size="huge" content="Confirm Check-In"
-                          onClick={() => this.changeReadyState()}/>
+                        <Button as={NavLink} activeClassName="active" exact to="/Queue" positive size="huge" content="Confirm Check-In"
+                          onClick={() => this.changeReadyState()}
+                        />
                       </Grid.Row>
                     </Grid>
                   </Modal.Actions>
@@ -89,12 +94,23 @@ class UserPage extends React.Component {
           <Grid centered className = 'notReady-background'>
             <Grid.Column textAlign='center'>
               <Header as ='h1' inverted >Your pet is not ready for pick up!</Header>
-              <Button> Refresh </Button>
+              <Button size="huge" content="Refresh"
+                onClick={() => this.refreshPage()}
+              />
             </Grid.Column>
           </Grid>
         </Container> </div>
     )
-    );
+    ) : (
+      <div className = 'overall-background'>
+        <Container>
+          <Grid centered className = 'notReady2-background'>
+            <Grid.Column className = 'ready-style' textAlign='center'>
+              <Icon inverted name='check circle' size='massive'/>
+              <Header as='h1' inverted className='alreadyChecked'>You have already checked in! Please return to the <Link to='/queue'>Queue</Link> page to check your position on the waitlist.</Header></Grid.Column>
+          </Grid>
+        </Container> </div>
+    ));
   }
 }
 

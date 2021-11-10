@@ -1,6 +1,7 @@
 import React from 'react';
-import { Grid, Feed, Icon, Header, Segment, Message, Loader } from 'semantic-ui-react';
+import { Grid, Feed, Icon, Header, Segment, Message, Loader, Button, Container } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
+import { Link } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { Owners } from '../../api/owner/Owner';
@@ -13,7 +14,15 @@ class Queue extends React.Component {
   }
 
   renderPage() {
-    return (
+    return (((!this.props.owner.ownerConfirm) ? (
+      <div className = 'overall-background'>
+        <Container>
+          <Grid centered className = 'notReady2-background'>
+            <Grid.Column className = 'ready-style' textAlign='center'>
+              <Icon inverted name='exclamation triangle' size='massive'/>
+              <Header as='h1' inverted className='alreadyChecked'> It seems like you have not yet checked in. Please return to the <Link to='/user'>Check In</Link> page to do so.</Header></Grid.Column>
+          </Grid>
+        </Container> </div>) : (
     /*  <Grid columns='equal' padded> */
       <div className="overall-background">
         <Grid centered stackable columns={3}>
@@ -56,7 +65,7 @@ class Queue extends React.Component {
           </Grid.Column>
         </Grid>
       </div>
-    );
+    )));
   }
 }
 
