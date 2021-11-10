@@ -3,12 +3,6 @@
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" }
   ],
-  "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
-  ],
   "defaultOwners": [
     {"firstName":  "Maegan", "lastName": "Chow", "email": "maegan@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "1234561", "ownerConfirm": "Ready", "queueNumber": null, "waitTime": null},
     {"firstName":  "Nhan", "lastName": "Bui", "email": "nhan@foo.com", "phoneNumber": "123-4567-8910", "microchipCode": "1234562", "ownerConfirm": "Not Ready", "queueNumber": null, "waitTime": null},

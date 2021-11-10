@@ -7,13 +7,9 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
-import ListStuff from '../pages/ListStuff';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
-import AddStuff from '../pages/AddStuff';
 import AddPets from '../pages/AddPets';
 import ListAnnouncements from '../pages/ListAnnouncements';
 import UserPage from '../pages/UserPage';
-import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -40,10 +36,7 @@ class App extends React.Component {
             <Route path="/signout" component={Signout}/>
             <Route path="/petstatus" component={PetReadyMessage}/>
             <ProtectedRoute path="/queue" component={Queue}/>
-            <ProtectedRoute path="/list" component={ListStuff}/>
-            <ProtectedRoute path="/add" component={AddStuff}/>
             <ProtectedRoute path="/user" component={UserPage}/>
-            <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
             <ProtectedRoute path="/petform" component={PetForm}/>
             <ProtectedRoute path="/petroster" component={PetRoster}/>
             <Route path="/listannouncements" component={ListAnnouncements}/>
@@ -51,7 +44,6 @@ class App extends React.Component {
             <AdminProtectedRoute path="/petlist" component={ListPets}/>
             <AdminProtectedRoute path="/waitlist" component={ListWaitlist}/>
             <AdminProtectedRoute path="/pet/edit/:_id" component={PetEditForm}/>
-            <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
             <Route component={NotFound}/>
           </Switch>
           <Footer/>
