@@ -41,3 +41,8 @@
     background-size: 100%;
   }
 }
+
+.listWaitlistTable {
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+}

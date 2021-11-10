@@ -1,24 +1,21 @@
 import React from 'react';
-import { Table, Button, Icon } from 'semantic-ui-react';
+import { Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List person table. See pages/Listperson.jsx. */
 class OwnerItem extends React.Component {
   render() {
+    return (this.props.owner && this.props.owner.ownerConfirm === 'Ready') ? this.renderPage() : '';
+  }
+
+  renderPage() {
     return (
       <Table.Row>
+        <Table.Cell>{this.props.owner.queueNumber}</Table.Cell>
         <Table.Cell>{this.props.owner.microchipCode}</Table.Cell>
         <Table.Cell>{this.props.owner.firstName}</Table.Cell>
-        <Table.Cell>{this.props.owner.queuePos}</Table.Cell>
-        <Table.Cell> <Button icon>
-          <Icon name='x' />
-        </Button></Table.Cell>
-        <Table.Cell> <Button icon>
-          <Icon name='angle down' />
-        </Button></Table.Cell>
-      </Table.Row>
-    );
+      </Table.Row>);
   }
 }
 

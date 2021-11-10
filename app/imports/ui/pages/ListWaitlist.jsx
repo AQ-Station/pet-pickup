@@ -1,12 +1,68 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Table, Header, Loader } from 'semantic-ui-react';
+import { Container, Grid, Table, Header, Loader, Button } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Owners } from '../../api/owner/Owner'; import OwnerItem from '../components/OwnerItem';
+import swal from 'sweetalert';
+import { _ } from 'meteor/underscore';
+import { Owners } from '../../api/owner/Owner';
+import OwnerItem from '../components/OwnerItem';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListWaitlist extends React.Component {
+
+  // update and assign queue for owners who are ready
+  updateQueue = (ownerCollection) => {
+    const listOfReadyOwners = [];
+
+    // map collection to an array
+    _.map(ownerCollection, function (anOwner) {
+      if (anOwner.ownerConfirm === 'Ready') {
+        listOfReadyOwners.push(anOwner);
+      }
+    });
+
+    const length = listOfReadyOwners.length - 1; // set array length number for iteration
+
+    // iterate through array of owners and assign queue numbers
+    for (let i = 0; i <= length; i++) {
+      listOfReadyOwners[i].queueNumber = i + 1;
+    }
+
+    // iterate through array of owners again and update collection
+    for (let j = 0; j <= length; j++) {
+      Owners.collection.update(listOfReadyOwners[j]._id, { $set: { queueNumber: listOfReadyOwners[j].queueNumber } });
+    }
+
+    return listOfReadyOwners;
+  }
+
+  // remove first from queue who are finished and update collection
+  removeAndUpdate = (list) => {
+    const listOfReadyOwners = list;
+
+    Owners.collection.update(listOfReadyOwners[0]._id, { $set: { queueNumber: null } });
+    Owners.collection.update(listOfReadyOwners[0]._id, { $set: { ownerConfirm: 'Not Ready' } });
+
+    listOfReadyOwners.shift();
+
+    const length = listOfReadyOwners.length - 1;
+
+    // iterate through array of owners and assign queue numbers
+    for (let i = 0; i <= length; i++) {
+      listOfReadyOwners[i].queueNumber = i + 1;
+    }
+
+    // iterate through array of owners again and update collection
+    for (let j = 0; j <= length; j++) {
+      Owners.collection.update(listOfReadyOwners[j]._id, { $set: { queueNumber: listOfReadyOwners[j].queueNumber } });
+    }
+
+    swal('Checked-out owner in Waitlist #1!', 'Updating Waitlist...', 'success');
+
+    return listOfReadyOwners;
+
+  }
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
@@ -15,17 +71,21 @@ class ListWaitlist extends React.Component {
 
   // Render the page once subscriptions have been received.
   renderPage() {
+    this.updateQueue(this.props.owners);
     return (
-      <Container>
-        <Header as="h2" textAlign="center">Waitlist</Header>
+      <Container centered className="listWaitlistTable">
+        <Header as="h2" textAlign="center">Waitlist Control Panel</Header>
+        <Grid container centered verticalAlign='middle' textAlign='center'>
+          <Grid.Column textAlign='center'>
+            <Button primary onClick={() => this.removeAndUpdate(this.updateQueue(this.props.owners))}>Check-out owner</Button>
+          </Grid.Column>
+        </Grid>
         <Table celled>
           <Table.Header>
             <Table.Row>
+              <Table.HeaderCell>Waitlist Number</Table.HeaderCell>
               <Table.HeaderCell>Microchip Code</Table.HeaderCell>
               <Table.HeaderCell>First Name</Table.HeaderCell>
-              <Table.HeaderCell>Waitlist Number</Table.HeaderCell>
-              <Table.HeaderCell>Remove</Table.HeaderCell>
-              <Table.HeaderCell>Delay</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
