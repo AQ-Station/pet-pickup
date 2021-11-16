@@ -28,6 +28,8 @@ The way to access the pet-owner side:
 2. You can input any credentials for the Email address, First Name, Last Name, Phone Number, and Password text slots, but you must input either "55555555" or "88888888" for the Microchip #1 slot.
 3. Click the "Submit" button and you will be directed to a page where you can check if your pet is ready for pick-up and you will be redirected to your place in the queue.
 
+NOTE: The app utilizes a queuing system to put owners in a waitlist. To activate the queuing system, sign in with an administrative account in a separate a browser or device and navigate to the waitlist page in the side navigation bar. By remaining in the waitlist page, the queue list will continuously operate and assign potential owners with a waitlist number.
+
 ## Local Deployment
 
 ### Installation
@@ -49,8 +51,6 @@ $ meteor npm run start
 ```
 
 If all goes well, the template application will appear at http://localhost:3000.
-
-NOTE: The app utilizes a queuing system to put owners in a waitlist. To activate the queuing system, sign in with an administrative account in a separate a browser or device and navigate to the waitlist page in the side navigation bar. By remaining in the waitlist page, the queue list will continuously operate and assign potential owners with a waitlist number.
   
 ## Contact Us
 This application was created by Chad Oshiro, Joshua Paino, Kha Bui, Kiran Datwani, Maegan Chow, and Nhan Bui for HACC 2021 competition.
