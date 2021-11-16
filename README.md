@@ -11,9 +11,22 @@ The Airport Animal Quarantine Offices and the pet-owners have issues communicati
 <li>Pet owners are able to easily find their location in the queue and when they need to pick up their pet.</li>
 </ul>
 
+#### See a live demo of the application: https://youtu.be/ygyjHDvwcgs
+
 #### See the application live on your mobile or computer devices: http://142.93.62.191/
 
-#### See a live demo of the application: https://youtu.be/ygyjHDvwcgs
+The way to access the administration side is:
+
+1. Click the "Administration" button
+2. Input "admin@foo.com" for the Email address
+3. Input "changeme" for the password
+4. Click the "Submit" button and you will be directed to a page where you can add and remove pets.
+
+The way to access the pet-owner side:
+
+1. Click the "Pet Owner" button
+2. You can input any credentials for the Email address, First Name, Last Name, Phone Number, and Password text slots, but you must input either "55555555" or "88888888" for the Microchip #1 slot.
+3. Click the "Submit" button and you will be directed to a page where you can check if your pet is ready for pick-up and you will be redirected to your place in the queue.
 
 ## Local Deployment
 
