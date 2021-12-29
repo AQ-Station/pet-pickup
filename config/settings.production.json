@@ -1,4 +1,10 @@
 {
+  "galaxy.meteor.com": {
+    "env": {
+      "MONGO_URL": "mongodb+srv://kirandatwani:India2003@cluster0.jvt5v.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    }
+  },
+
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" }
