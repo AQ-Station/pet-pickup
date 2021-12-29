@@ -1,7 +1,7 @@
 {
   "galaxy.meteor.com": {
     "env": {
-      "MONGO_URL": "mongodb+srv://kirandatwani:India2003@cluster0.jvt5v.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+      "MONGO_URL": "mongodb+srv://kirandatwani:aqstation2021@cluster0.jvt5v.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
     }
   },
 
